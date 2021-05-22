@@ -1,0 +1,46 @@
+{
+  "name": "frontend_builder_boilerplate",
+  "version": "2.1.3",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "gulp build",
+    "dev": "nodemon --watch gulpfile.js --watch package.json --ext js,json,styl --exec gulp dev",
+    "prettify": "prettier src/templates/**/*.pug src/scripts/**/*.js --write",
+    "validate": "gulp validate"
+  },
+  "repository": {
+    "type": "git",
+    "url": "ssh://git@github.com:khv2online/frontend_builder_boilerplate.git"
+  },
+  "author": "khv2online@gmail.com",
+  "license": "UNLICENSED",
+  "devDependencies": {
+    "@prettier/plugin-pug": "^1.15.2",
+    "eslint": "^7.26.0",
+    "gulp-connect": "^5.7.0",
+    "gulp-debug": "^4.0.0",
+    "gulp-html": "^3.4.0",
+    "nodemon": "^2.0.7",
+    "prettier": "^2.3.0",
+    "stylint": "^2.0.0"
+  },
+  "dependencies": {
+    "argv": "0.0.2",
+    "gulp": "^4.0.2",
+    "gulp-changed": "^4.0.2",
+    "gulp-clean-css": "^4.3.0",
+    "gulp-esbuild": "^0.7.7",
+    "gulp-filter": "^7.0.0",
+    "gulp-if": "^3.0.0",
+    "gulp-progeny": "^0.4.1",
+    "gulp-pug": "^4.0.1",
+    "gulp-sourcemaps": "^3.0.0",
+    "gulp-stylus": "^2.7.0",
+    "gulp-touch-fd": "^2.0.0",
+    "yargs": "^16.2.0"
+  },
+  "optionalDependencies": {
+    "swiper": "^6.6.2",
+    "bootstrap": "5.0.1"
+  }
+}
