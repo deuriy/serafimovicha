@@ -1,0 +1,61 @@
+.Footer
+	padding 93px 20px 44px
+	background $darkBlue
+	color $white
+	text-align center
+	
+	a
+		color $white
+		text-decoration none
+		
+		&[href^="mailto:"]
+			text-decoration underline
+			
+			&:hover
+				text-decoration none
+	
+	&_address
+		margin-bottom 16px
+		text-transform uppercase
+		font-family $forum
+		letter-spacing 1px
+		line-height 1.375
+	
+	&_contacts
+		list-style none
+		display grid
+		grid-auto-flow column
+		justify-content center
+		margin-bottom 23px
+		font-weight 600
+		line-height 1.375
+		letter-spacing 1px
+	
+	&_contact
+		position relative
+		margin-right 32px
+		padding-right 32px
+		
+		&::after
+			content ""
+			position absolute
+			top 5px
+			right 0
+			bottom 9px
+			width 4px
+			height 4px
+			margin auto
+			background $orange
+			transform rotate(-45deg)
+		
+		&:last-child
+			margin-right 0
+			padding-right 0
+	
+	&_soclinks
+		margin-bottom 31px
+	
+	&_copyright
+		color rgba($white, 50%)
+		font-size 12px
+		line-height 1.67

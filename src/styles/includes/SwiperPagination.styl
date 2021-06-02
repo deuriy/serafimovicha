@@ -1,0 +1,31 @@
+.SwiperPagination
+	display grid
+	grid-auto-flow column
+	align-items center
+	justify-content center
+	height 20px
+	
+	&_bullet
+		width 8px
+		height 8px
+		margin-right 16px
+		border-radius 50%
+		background $white
+		cursor pointer
+		@extend .transition
+		
+		&:last-child
+			margin-right 0
+		
+		&:hover
+			background $brown
+		
+		&-active
+			width 20px
+			height 20px
+			border 2px solid $brown
+			background transparent
+	
+	&-darkBlue
+		.SwiperPagination_bullet:not(.SwiperPagination_bullet-active)
+			background $darkBlue

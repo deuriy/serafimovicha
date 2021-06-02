@@ -1,0 +1,41 @@
+.Statistics
+	&_label
+		margin-bottom 20px
+		color $brown
+		line-height 1.25
+		
+	&_list
+		list-style none
+		font-family $forum
+	
+	&_item
+		margin-bottom 40px
+		
+		&:last-child
+			margin-bottom 0
+	
+	&_number
+		margin-bottom -0.1em
+		font-size 64px
+		line-height 1.09375
+	
+	&_text
+		font-size 21px
+		line-height 1.09523
+	
+	&-inline
+		.Statistics_list
+			display grid
+			grid-auto-flow column
+			justify-content start
+		
+		.Statistics_item
+			margin-right 67px
+			margin-bottom 0
+		
+		.Statistics_number
+			margin-bottom 0
+		
+		.Statistics_text
+			font-size 18px
+			line-height 1.11

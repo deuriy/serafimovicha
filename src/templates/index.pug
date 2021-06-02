@@ -1,5 +1,239 @@
 extends layouts/base
 
 block content
-  .container
-    p Hello world!
+  .Frontpage
+    .HeroSection#HeroSection
+      .HeroSection_left
+        .Navbar
+          a(href="/" title="Квартал на Серафимовича").Logo.Navbar_logo
+            img(src="/img/logo_white.svg" alt="Квартал на Серафимовича").Logo_img
+          .MainMenu.Navbar_mainMenu
+            ul.MainMenu_list
+              li.MainMenu_item
+                a(href="#").MainMenu_link О проекте
+              li.MainMenu_item
+                a(href="#").MainMenu_link Расположение
+              li.MainMenu_item
+                a(href="#").MainMenu_link Преимущества
+              li.MainMenu_item
+                a(href="#").MainMenu_link Квартиры
+          a(href="#").BtnOutline.BtnOutline-arrowRight.Navbar_btn Выбрать квартиру
+      .HeroSection_right
+        .Contacts.HeroSection_contacts
+          a(href="tel:+73833054111").Phone.HeroSection_phone +7 383 305-41-11
+          a(href="#").OrderCall.HeroSection_orderCall Заказать звонок
+        .HeroSlider.swiper-container
+          .swiper-wrapper
+            - for (let i = 0; i < 4; i++) {
+              .swiper-slide
+                .HeroSlide(style="background-image: url('/img/hero_slide_img.png')")
+                  .HeroSlide_text
+                    p Жилой комплекс бизнес-класса на ул. Серафимовича
+                  h2.SectionTitle.SectionTitle-white.HeroSlide_title Новый уровень благоустройства
+            - }
+          .SwiperPagination
+          button(type="button").CircleBtn.CircleBtn-next
+    .About
+      include ./blocks/LeftSidebar
+      .ContactsBlock.About_contactsBlock
+        .ContactsBlock_left
+          a(href="tel:+73833054111").Phone.ContactsBlock_phone +7 383 305-41-11
+          a(href="#").OrderCall.ContactsBlock_orderCall Заказать звонок
+        .ContactsBlock_right
+          a(href="#").BtnOutline Выбрать квартиру
+      .About_container
+        h2.SectionTitle.About_title О проекте
+        .About_text
+          p Квартал на «Серафимовича» — это невысокие, полностью кирпичные дома, 9 этажей, в комплексе спроектирован подземный теплый паркинг. Комплекс будет состоять из 2-х домов (195 квартир)
+          p Все квартиры в квартале на Серафимовича сдаются под чистовую отделку. Стены выровнены и оштукатурены. На полу - стяжка. Установлены окна и двери. Сделана разводка по электрики и водоснабжению.
+        .Statistics.About_statistics
+          ul.Statistics_list
+            li.Statistics_item
+              .Statistics_number 195
+              .Statistics_text квартир
+            li.Statistics_item
+              .Statistics_number 9
+              .Statistics_text этажей
+            li.Statistics_item
+              .Statistics_number 2
+              .Statistics_text дома
+        .CircleImg.About_circleImg
+          img(src="/img/about_img.png" alt="О проекте").CircleImg_img
+    .Location.Frontpage_location
+      .Location_map
+        img(src="/img/map.svg" alt="Расположение").Location_mapImg
+      .Location_textWrapper
+        h2.SectionTitle.SectionTitle-brown.Location_title Расположение
+        .Location_text
+          p Это самый центр левобережья: здесь много школ, детских садов, торговых центров, клиник, развлекательных мест и фитнес-залов. Буквально в квартале расположен сквер Славы с Вечным огнем и красивыми зелеными аллеями, а по пути к метро — сквер Сибиряков-Гвардейцев.
+    .Advantages
+      include ./blocks/LeftSidebar-white
+      .Advantages_container
+        .Advantage.Advantages_item
+          .Advantage_imgWrapper
+            img(src="/img/advantage_1.png" alt="Все самое лучшее — для вас").Advantage_img
+            h2.SectionTitle.Advantage_sectionTitle Все самое #[br]лучшее — для вас
+          .Advantage_textWrapper
+            h3.Advantage_title Современная #[br]архитектура
+            .Advantage_text
+              p Квартал на «Серафимовича» - это невысокие, полностью кирпичные дома, 9 этажей, в комплексе спроектирован подземный теплый паркинг. Комплекс будет состоять из 2-х домов (195 квартир)
+        .Advantage.Advantage-reverse.Advantages_item.Advantages_item-reverse
+          .Advantage_imgWrapper
+            img(src="/img/advantage_2.png" alt="Современные МОПы").Advantage_img
+            img(src="/img/advantage_3.png" alt="Современные МОПы").Advantage_img.Advantage_img-overlay
+          .Advantage_textWrapper
+            h3.Advantage_title Современные МОПы
+            .Advantage_text
+              p Все квартиры в квартале на Серафимовича сдаются под чистовую отделку. Стены выровнены и оштукатурены. На полу - стяжка. Установлены окна и двери. Сделана разводка по электрики и водоснабжению. Есть розетки и выключатели.
+        .Advantage.Advantage-alignCenter.Advantages_item
+          .Advantage_imgWrapper
+            img(src="/img/advantage_4.png" alt="Малое количество квартир").Advantage_img
+          .Advantage_textWrapper
+            h3.Advantage_title Малое количество #[br]квартир
+            .Advantage_text
+              p Квартал на «Серафимовича» — это невысокие, полностью кирпичные дома, 9 этажей, в комплексе спроектирован подземный теплый паркинг. Комплекс будет состоять из 2-х домов (195 квартир)
+    .PlanningSolutions.Tabs
+      .Container
+        .PlanningSolutions_header
+          h2.SectionTitle.SectionTitle-brown Планировочные #[br]решения
+          ul.Tabs_list
+            li(data-index="0").Tabs_item Студии
+            li(data-index="1").Tabs_item 1-комнатные
+            li(data-index="2").Tabs_item.Tabs_item-active 2-комнатные
+            li(data-index="3").Tabs_item 3-комнатные
+      .PlanningSolutions_content.Tabs_container
+        - for (var i = 0; i < 4; i++)
+          .Tabs_content
+            .PlanningSolutionsSlider.swiper-container.Container(id="PlanningSolutionsSlider" + i)
+              .swiper-wrapper
+                - for(var j = 0; j < 7; j++) {
+                  .swiper-slide
+                    include ./blocks/PlanSolution
+                - }
+              .SwiperPagination.SwiperPagination-darkBlue
+            button(type="button").CircleBtn.CircleBtn-brown.CircleBtn-next
+    .ApartmentChoosing#ApartmentChoosing
+      include ./blocks/LeftSidebar
+      .ApartmentChoosing_left
+        h2.SectionTitle.ApartmentChoosing_title Выбор квартиры
+        .HousePlan.ApartmentChoosing_housePlan
+          img(src="/img/house_plan.png", alt="План дома").HousePlan_img
+          .RealEstate.HousePlan_realEstate
+            h4.RealEstate_title 2 комнатная
+            .RealEstate_textWrapper
+              .RealEstate_apartmentNumber Квартира № 108
+              ul.RealEstate_characteristics
+                li.RealEstate_characteristic
+                  .RealEstate_characteristicName Площадь:
+                  .RealEstate_characteristicValue 42 м #[sup 2]
+                li.RealEstate_characteristic
+                  .RealEstate_characteristicName Стоимость:
+                  .RealEstate_characteristicValue 7 503 840 ₽
+      .ApartmentChoosing_right
+        h3.ApartmentChoosing_subtitle 5 этаж
+        .ApartmentChoosing_imgWrapper
+          img(src="/img/house.png", alt="5 этаж").ApartmentChoosing_img
+    .MapSection
+      include ./blocks/LeftSidebar
+      .MapSection_container
+        h2.SectionTitle.MapSection_title Инфраструктура
+        .MapSection_map
+          img(src="/img/map.png" alt="Инфраструктура").MapSection_mapImg
+        .MapIcons.MapSection_icons
+          ul.MapIcons_list
+            li.MapIcons_item
+              .MapIcon
+                .MapIcon_iconWrapper
+                  img(src="/img/map_icons/all.svg" alt="Все").MapIcon_icon
+                h4.MapIcon_title Все
+            li.MapIcons_item
+              .MapIcon
+                .MapIcon_iconWrapper
+                  img(src="/img/map_icons/health.svg" alt="Здоровье").MapIcon_icon
+                h4.MapIcon_title Здоровье
+            li.MapIcons_item
+              .MapIcon
+                .MapIcon_iconWrapper.MapIcon_iconWrapper-darkBg
+                  img(src="/img/map_icons/education.svg" alt="Образование").MapIcon_icon
+                h4.MapIcon_title Образование
+            li.MapIcons_item
+              .MapIcon
+                .MapIcon_iconWrapper.MapIcon_iconWrapper-darkBg
+                  img(src="/img/map_icons/food.svg" alt="Питание").MapIcon_icon
+                h4.MapIcon_title Питание
+            li.MapIcons_item
+              .MapIcon
+                .MapIcon_iconWrapper
+                  img(src="/img/map_icons/sport.svg" alt="Спорт").MapIcon_icon
+                h4.MapIcon_title Спорт
+            li.MapIcons_item
+              .MapIcon
+                .MapIcon_iconWrapper.MapIcon_iconWrapper-darkBg
+                  img(src="/img/map_icons/shop.svg" alt="Магазины").MapIcon_icon
+                h4.MapIcon_title Магазины
+            li.MapIcons_item
+              .MapIcon
+                .MapIcon_iconWrapper
+                  img(src="/img/map_icons/park.svg" alt="Парки").MapIcon_icon
+                h4.MapIcon_title Парки
+            li.MapIcons_item
+              .MapIcon
+                .MapIcon_iconWrapper
+                  img(src="/img/map_icons/water.svg" alt="Водоемы").MapIcon_icon
+                h4.MapIcon_title Водоемы
+            li.MapIcons_item
+              .MapIcon
+                .MapIcon_iconWrapper.MapIcon_iconWrapper-darkBg
+                  img(src="/img/map_icons/mall.svg" alt="ТЦ").MapIcon_icon
+                h4.MapIcon_title ТЦ
+        .MapSection_textAndStatistics
+          .MapSection_text
+            p Два дома расположены на улице Серафимовича, #[br]в 500 метрах от станции метро «Площадь Маркса». #[br]В районе хорошо развита социальная и транспортная инфраструктура, район прекрасно подходит для комфортной жизни.
+          .Statistics.Statistics-inline.MapSection_statistics
+            .Statistics_label Все рядом
+            ul.Statistics_list
+              li.Statistics_item
+                .Statistics_number 10
+                .Statistics_text Детских садов
+              li.Statistics_item
+                .Statistics_number 25+
+                .Statistics_text Ресторанов
+              li.Statistics_item
+                .Statistics_number 14
+                .Statistics_text Школ
+              li.Statistics_item
+                .Statistics_number 20+
+                .Statistics_text Магазинов
+    .GallerySection.Tabs.Tabs-gallerySection
+      include ./blocks/LeftSidebar-white
+      .GallerySection_container
+        ul.Tabs_list
+          li(data-index="0").Tabs_item Галерея
+          li(data-index="1").Tabs_item.Tabs_item-active Ход строительства
+        .Tabs_container
+          - for (var i = 0; i < 2; i++)
+            .Tabs_content
+              .GallerySlider.swiper-container(id="GallerySlider" + i)
+                .swiper-wrapper.GallerySlider_wrapper
+                  - for(var j = 0; j < 4; j++) {
+                    .swiper-slide.GallerySlider_slide
+                      img(src="img/gallery_img.jpg")
+                  - }
+                .SwiperPagination
+              button(type="button").CircleBtn.CircleBtn-brown.CircleBtn-whiteBg.CircleBtn-next
+    .FormSection
+      include ./blocks/LeftSidebar
+      .FormSection_left
+        form.Form
+          h2.SectionTitle.Form_title Появились вопросы?
+          .Form_wrapper
+            .Form_item
+              input(type="tel" name="phone" placeholder="Ваш телефон").Form_text
+            .Form_item
+              button(type="submit").Form_submitBtn Отправить заявку
+          .Form_description
+            p Отправляя форму, вы соглашаетесь с условиями #[a(href="#") обработки персональных данных]
+      .FormSection_right
+        h2.SectionTitle.SectionTitle-white.FormSection_title Перейти к выбору квартиры
+        a(href="#ApartmentChoosing").CircleBtn.CircleBtn-small.CircleBtn-arrowTop
+      a(href="#HeroSection").CircleBtn.CircleBtn-small.CircleBtn-orange.CircleBtn-darkBlueBg.CircleBtn-arrowTop.FormSection_circleBtn

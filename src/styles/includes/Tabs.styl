@@ -1,0 +1,46 @@
+.Tabs
+	&_list
+		display grid
+		grid-auto-flow column
+		padding-right 3px
+		list-style none
+	
+	&_item
+		margin-left 25px
+		padding-top 4px
+		padding-bottom 4px
+		border-bottom 1px solid transparent
+		font-size 24px
+		line-height 1.08333
+		font-family $forum
+		color $darkBlue
+		cursor pointer
+		@extend .transition
+		
+		&-active,
+		&:hover
+			border-bottom-color $brown
+			color $brown
+	
+	&_content
+		display none
+		position relative
+	
+	&-gallerySection
+		.Tabs_list
+			padding-right 0
+			justify-content start
+			margin-bottom 74px
+		
+		.Tabs_item
+			margin-right 140px
+			margin-left 0
+			padding-bottom 0
+			border-bottom none
+			font-size 80px
+			
+			&:not(.Tabs_item-active)
+				color $white
+			
+			&:last-child
+				margin-right 0

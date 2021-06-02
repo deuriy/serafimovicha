@@ -1,0 +1,42 @@
+.CircleBtn
+	display inline-grid
+	width 136px
+	height 136px
+	border 1px solid $white
+	outline none
+	border-radius 50%
+	background url("data:image/svg+xml,%3Csvg width='36' height='12' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M29.52 6.429H0V5.57h29.52L28 0c2.08 2.4 5.36 4.629 8 6-2.64 1.371-5.92 3.6-8 6l1.52-5.571z' fill='%23fff'/%3E%3C/svg%3E") center center no-repeat
+	cursor pointer
+	@extend .transition
+	
+	&:hover
+		border-color $brown
+		background-image url("data:image/svg+xml,%3Csvg width='36' height='12' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M29.52 6.429H0V5.57h29.52L28 0c2.08 2.4 5.36 4.629 8 6-2.64 1.371-5.92 3.6-8 6l1.52-5.571z' fill='%23CD7858'/%3E%3C/svg%3E")
+	
+	&-brown
+		border-color $brown
+		background-image url("data:image/svg+xml,%3Csvg width='36' height='12' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M29.443 5.984H0v-.798h29.443L27.927 0c2.075 2.234 5.346 4.309 7.98 5.585-2.634 1.277-5.905 3.352-7.98 5.586l1.516-5.187z' fill='%23CD7858'/%3E%3C/svg%3E")
+		
+		&:hover
+			background-color $brown
+			background-image url("data:image/svg+xml,%3Csvg width='36' height='12' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M29.443 5.984H0v-.798h29.443L27.927 0c2.075 2.234 5.346 4.309 7.98 5.585-2.634 1.277-5.905 3.352-7.98 5.586l1.516-5.187z' fill='%23fff'/%3E%3C/svg%3E")
+	
+	&-whiteBg
+		background-color $white
+	
+	&-arrowTop
+		background-image url("data:image/svg+xml,%3Csvg width='12' height='36' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M5.984 6.557V36h-.798V6.557L0 8.073C2.234 5.998 4.309 2.727 5.585.093c1.277 2.634 3.352 5.905 5.586 7.98L5.984 6.557z' fill='%23fff'/%3E%3C/svg%3E")
+		
+		&:hover
+			background-image url("data:image/svg+xml,%3Csvg width='12' height='36' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M5.984 6.557V36h-.798V6.557L0 8.073C2.234 5.998 4.309 2.727 5.585.093c1.277 2.634 3.352 5.905 5.586 7.98L5.984 6.557z' fill='%23CD7858'/%3E%3C/svg%3E")
+	
+	&-small	
+		width 92px
+		height 92px
+	
+	&-orange
+		border-color $orange
+		background-image url("data:image/svg+xml,%3Csvg width='12' height='36' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M5.984 6.557V36h-.798V6.557L0 8.073C2.234 5.998 4.309 2.727 5.585.093c1.277 2.634 3.352 5.905 5.586 7.98L5.984 6.557z' fill='%23CD7858'/%3E%3C/svg%3E")
+	
+	&-darkBlueBg
+		background-color $darkBlue

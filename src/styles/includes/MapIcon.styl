@@ -1,0 +1,28 @@
+.MapIcon
+	display grid
+	grid-auto-flow column
+	align-items center
+	
+	&_iconWrapper
+		display grid
+		justify-content center
+		align-content center
+		width 35px
+		height 35px
+		border 2px solid $darkBrown
+		border-radius 2px
+		transform rotate(-45deg)
+		
+		&-darkBg
+			background-color $darkBrown
+		
+	&_icon
+		transform rotate(45deg)
+	
+	&_title
+		margin-left 14px
+		color #7A7E81
+		font-weight normal
+		font-size 12px
+		line-height 1.5
+		text-transform uppercase
