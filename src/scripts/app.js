@@ -19,12 +19,30 @@ const heroSlider = new Swiper('.HeroSlider', {
   }
 });
 
+const advantagesSlider = new Swiper('.AdvantagesSlider', {
+	effect: 'fade',
+  fadeEffect: {
+    crossFade: true
+  },
+
+  pagination: {
+    el: '.AdvantagesSlider .SwiperPagination',
+    bulletClass: 'SwiperPagination_bullet',
+    bulletActiveClass: 'SwiperPagination_bullet-active',
+    clickable: true
+  },
+
+  navigation: {
+    nextEl: '.AdvantagesSlider .CircleBtn-next'
+  }
+});
+
 
 let planningSolutionsSliders = [];
 document.querySelectorAll('.PlanningSolutionsSlider').forEach(item => {
 	planningSolutionsSliders.push(new Swiper(`#${item.id}`, {
-		slidesPerView: 3,
-		spaceBetween: 32,
+		slidesPerView: 1,
+		spaceBetween: 16,
 
 		pagination: {
 	    el: `#${item.id} .SwiperPagination`,
@@ -35,6 +53,21 @@ document.querySelectorAll('.PlanningSolutionsSlider').forEach(item => {
 
 	  navigation: {
 	    nextEl: `#${item.id} + .CircleBtn-next`
+	  },
+
+	  breakpoints: {
+	    768: {
+	      slidesPerView: 'auto',
+				spaceBetween: 32,
+	    },
+	    1200: {
+	      slidesPerView: 3,
+				spaceBetween: 24,
+	    },
+	    1920: {
+				slidesPerView: 3,
+	      spaceBetween: 32
+	    }
 	  }
 	}));
 });
@@ -43,7 +76,7 @@ let gallerySliders = [];
 document.querySelectorAll('.GallerySlider').forEach(item => {
 	gallerySliders.push(new Swiper(`#${item.id}`, {
 		slidesPerView: 'auto',
-		spaceBetween: 96,
+		spaceBetween: 65,
 
 		pagination: {
 	    el: `#${item.id} .SwiperPagination`,
@@ -54,6 +87,12 @@ document.querySelectorAll('.GallerySlider').forEach(item => {
 
 	  navigation: {
 	    nextEl: `#${item.id} + .CircleBtn-next`
+	  },
+		
+		breakpoints: {
+	    1920: {
+	      spaceBetween: 96
+	    }
 	  }
 	}));
 });
@@ -97,6 +136,38 @@ document.querySelectorAll('.Tabs_list').forEach(tabList => {
 			}
 		}
 	});
+});
+
+document.addEventListener('click', function(e) {
+  let openMenuLink = e.target.closest('.CircleIcon-menuHamburger');
+
+  if (!openMenuLink) return;
+
+  let heroSectionNavbar = document.querySelector('.Navbar-heroSection');
+
+	if (!heroSectionNavbar) return;
+
+  heroSectionNavbar.classList.add('Navbar-opened');
+
+	document.body.style.overflow = 'hidden';
+
+  e.preventDefault();
+});
+
+document.addEventListener('click', function(e) {
+  let closeMenuLink = e.target.closest('.CircleIcon-closeMenu');
+
+  if (!closeMenuLink) return;
+
+  let heroSectionNavbar = document.querySelector('.Navbar-heroSection');
+
+	if (!heroSectionNavbar) return;
+
+  heroSectionNavbar.classList.remove('Navbar-opened');
+
+	document.body.style.cssText = '';
+
+  e.preventDefault();
 });
 
 

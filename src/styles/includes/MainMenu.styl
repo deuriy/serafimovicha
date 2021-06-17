@@ -1,4 +1,8 @@
 .MainMenu
+	&_list
+		@media $smMinus
+			text-align right
+
 	&_item,
 	&_link
 		color $white
@@ -9,9 +13,18 @@
 	
 	&_item
 		list-style none
+		// margin-bottom 2.34em
 		margin-bottom 42px
 		font-size 18px
 		letter-spacing 0.02em
+		
+		@media $xlMinus
+			margin-bottom 30px
+			font-size 16px
+		
+		@media $smMinus
+			margin-bottom 42px
+			font-size 18px
 		
 		&:last-child
 			margin-bottom 0

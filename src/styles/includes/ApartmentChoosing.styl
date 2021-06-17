@@ -1,19 +1,58 @@
 .ApartmentChoosing
 	position relative
 	display grid
-	grid 1fr / 1fr 1fr
+	grid-template-columns repeat(2, 50%)
+
+	@media $smMinus
+		grid-template-columns 1fr
 	
 	&_left
-		display grid
-		justify-items center
 		padding-top 70px
-		padding-right 20px
-		padding-left 300px
+		padding-right 30px
+		padding-left 344px
 		background $beige
+		
+		@media $xlMinus
+			padding-top 53px
+			padding-left 244px
+		
+		@media $smMinus
+			position fixed
+			z-index 1000
+			top 0
+			left 0
+			transform translateX(-100%)
+			@extend .transition
+			padding-left 30px
+	
+	&_title
+		margin-bottom 120px
+
+		@media $xlMinus
+			margin-bottom 82px
+		
+		@media $smMinus
+			margin-bottom 37px
+			padding-left 30px
+		
+		@media $xs
+			margin-bottom 14px
+			padding-left 16px
 	
 	&_right
+		display grid
+		align-items end
 		padding-top 97px
 		background rgba($beige, 50%)
+		
+		@media $xlMinus
+			padding-top 67px
+		
+		@media $smMinus
+			padding-top 72px
+		
+		@media $xs
+			padding-top 37px
 	
 	&_subtitle
 		margin-bottom 44px
@@ -22,3 +61,10 @@
 		font-size 50px
 		line-height 1.1
 		font-family $forum
+		
+		@media $xlMinus
+			margin-bottom 32px
+			font-size 38px
+	
+	&_img
+		display block

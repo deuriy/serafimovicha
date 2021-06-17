@@ -1,15 +1,39 @@
 .HeroSlider
 	height 100vh
+
+	@media $smMinus
+		// height auto
+		min-height 1024px
+	
+	@media $xs
+		min-height 522px
+		height auto
 	
 	.SwiperPagination
 		position absolute
 		z-index 10
 		bottom 50px
-		left 96px
+		left 488px
 		width auto
+		
+		@media $xlMinus
+			bottom 32px
+			left 346px
+		
+		@media $smMinus
+			bottom 50px
+			left 32px
+		
+		@media $xs
+			bottom 94px
+			left 20px
 	
 	.CircleBtn
 		position absolute
 		z-index 10
 		right 70px
 		bottom 120px
+		
+		@media $xlMinus
+			right 53px
+			bottom 83px

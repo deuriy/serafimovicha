@@ -9,6 +9,11 @@
 	cursor pointer
 	@extend .transition
 	
+	@media $xlMinus
+		width 96px
+		height 96px
+		background-size 30px
+	
 	&:hover
 		border-color $brown
 		background-image url("data:image/svg+xml,%3Csvg width='36' height='12' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M29.52 6.429H0V5.57h29.52L28 0c2.08 2.4 5.36 4.629 8 6-2.64 1.371-5.92 3.6-8 6l1.52-5.571z' fill='%23CD7858'/%3E%3C/svg%3E")
@@ -33,6 +38,16 @@
 	&-small	
 		width 92px
 		height 92px
+
+		// @media $xlMinus
+		// 	width 66px
+		// 	height 66px
+		// 	background-size 9px
+		
+		@media $smMinus
+			width 92px
+			height 92px
+			background-size auto
 	
 	&-orange
 		border-color $orange

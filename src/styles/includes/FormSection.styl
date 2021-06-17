@@ -1,25 +1,69 @@
 .FormSection
 	position relative
 	display grid
-	grid 1fr / 1fr 1fr
+	grid-template-columns repeat(2, 1fr)
+
+	@media $smMinus
+		grid-template-columns 1fr
 	
 	&_left,
 	&_right
 		padding-top 247px
 		padding-bottom 250px
+
+		@media $xlMinus
+			padding-top 175px
+			padding-bottom 174px
+		
+		@media $smMinus
+			padding-top 72px
+			padding-bottom 72px
+		
+		@media $xs
+			padding-top 47px
+			padding-bottom 40px
 	
 	&_left
 		padding-left 344px
 		background $beige
+
+		@media $xlMinus
+			padding-right 50px
+			padding-left 243px
+		
+		@media $smMinus
+			display grid
+			justify-content center
+			padding-right 30px
+			padding-left 30px
+		
+		@media $xs
+			padding-right 16px
+			padding-left 16px
 	
 	&_right
 		padding-right 30px
 		padding-left 38px
 		text-align center
 		background url('../img/apartment_choice.jpg') 0 0 / cover no-repeat
+
+		@media $smMinus
+			padding-top 84px
+		
+		@media $xs
+			padding 48px 16px 52px
 	
 	&_title
 		margin-bottom 85px
+
+		@media $xlMinus
+			margin-bottom 61px
+		
+		@media $smMinus
+			margin-bottom 73px
+		
+		@media $xs
+			margin-bottom 26px
 	
 	&_circleBtn
 		position absolute
@@ -27,3 +71,6 @@
 		bottom -46px
 		left 0
 		margin auto
+
+		@media $xlMinus
+			bottom -34px

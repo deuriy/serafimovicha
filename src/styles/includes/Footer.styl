@@ -3,6 +3,15 @@
 	background $darkBlue
 	color $white
 	text-align center
+
+	@media $xlMinus
+		padding 66px 20px 35px
+	
+	@media $smMinus
+		padding 87px 20px 37px
+	
+	@media $xs
+		padding 48px 20px 37px
 	
 	a
 		color $white
@@ -20,6 +29,12 @@
 		font-family $forum
 		letter-spacing 1px
 		line-height 1.375
+
+		@media $smMinus
+			margin-bottom 18px
+		
+		// @media $xs
+		// 	margin-bottom 38px
 	
 	&_contacts
 		list-style none
@@ -30,11 +45,20 @@
 		font-weight 600
 		line-height 1.375
 		letter-spacing 1px
+		
+		@media $xs
+			grid-auto-flow row
 	
 	&_contact
 		position relative
 		margin-right 32px
 		padding-right 32px
+
+		@media $xs
+			margin-right 0
+			margin-bottom 16px
+			padding-top 21px
+			padding-right 0
 		
 		&::after
 			content ""
@@ -47,15 +71,44 @@
 			margin auto
 			background $orange
 			transform rotate(-45deg)
+
+			@media $xs
+				top 0
+				bottom auto
+				left 0
+
+			@media $smPlus
+				display none
 		
 		&:last-child
 			margin-right 0
 			padding-right 0
+
+			@media $xs
+				margin-bottom 0
 	
 	&_soclinks
 		margin-bottom 31px
+
+		@media $xlMinus
+			margin-bottom 22px
+		
+		@media $smMinus
+			margin-bottom 28px
+		
+		@media $xs
+			margin-bottom 15px
 	
 	&_copyright
 		color rgba($white, 50%)
 		font-size 12px
 		line-height 1.67
+
+		@media $xs
+			line-height 1.25
+
+			p
+				margin-bottom 10px
+
+				&:last-child
+					margin-bottom 0

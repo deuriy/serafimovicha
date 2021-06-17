@@ -1,14 +1,30 @@
 .GallerySlider
 	&_wrapper
 		margin-bottom 50px
+
+		@media $xlMinus
+			margin-bottom 33px
+		
+		@media $xs
+			margin-bottom 14px
 		
 	&_slide
 		width auto
 		font-size 0
+
+		img
+			@media $xlMinus
+				max-height 467px
+			
+			@media $smMinus
+				max-height none
 	
 	.SwiperPagination
 		width 1216px
 		max-width 100%
+
+		@media $xlMinus
+			width 865px
 	
 	& + .CircleBtn
 		position absolute
@@ -17,3 +33,7 @@
 		right 198px
 		bottom 70px
 		margin auto
+
+		@media $xlMinus
+			right 140px
+			bottom 54px

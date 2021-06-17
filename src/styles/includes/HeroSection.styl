@@ -1,23 +1,71 @@
 .HeroSection
-	display grid
-	grid 1fr / 392px 1fr
-	// min-height 100%
-	// min-height 1010px
+	position relative
 	min-height 100vh
+	
+	@media $smMinus
+		min-height 1024px
+	
+	@media $xs
+		min-height 522px
+	
+	&_navbar
+		position absolute
+		z-index 100
+		top 0
+		left 0
 	
 	&_right
 		min-width 0
 	
+	&_logo
+		position absolute
+		z-index 100
+		top 32px
+		left 33px
+
+		@media $xs
+			top 16px
+			left 16px
+	
+	&_icons
+		position absolute
+		z-index 100
+		top 33px
+		right 33px
+		display grid
+		grid-auto-flow column
+		column-gap 8px
+
+		@media $xs
+			top 16px
+			right 16px
+	
 	&_contacts
 		position absolute
 		z-index 100
-		top 73px
-		right 73px
+		top 67px
+		right 71px
 		display grid
 		justify-items end
+		
+		@media $xlMinus
+			top 51px
+			right 51px
 	
 	&_phone
 		margin-bottom 8px
+		
+		// @media $xlMinus
+		// 	margin-bottom 7px
 	
 	&_orderCall
 		margin-right 2px
+	
+	&_btn
+		position absolute
+		z-index 100
+		bottom 0
+		left 15px
+
+		@media $xs
+			bottom 24px

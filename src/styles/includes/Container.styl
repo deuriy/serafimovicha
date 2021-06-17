@@ -1,8 +1,22 @@
 .Container
-	width 1280px
-	// width 1320px
+	width 1270px
 	max-width 100%
 	margin-right auto
 	margin-left auto
 	padding-right 20px
 	padding-left 20px
+	
+	@media $xlMinus
+		width 920px
+	
+	@media $smMinus
+		padding-right 30px
+		padding-left 30px
+
+		&-planningSolutionsSlider
+			padding-right 0
+			padding-left 0
+
+			@media $xs
+				padding-right 16px
+				padding-left 16px

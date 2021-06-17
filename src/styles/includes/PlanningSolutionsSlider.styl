@@ -1,12 +1,16 @@
 .PlanningSolutionsSlider
-	// .swiper-wrapper
-	// 	width 1280px
-	// 	max-width 100%
-	// 	margin-right auto
-	// 	margin-left auto
-		
+	&_slide
+		@media $smMinus
+			width auto
+			
 	.SwiperPagination
 		margin-top 30px
+		
+		@media $xlMinus
+			margin-top 18px
+		
+		@media $smMinus
+			margin-top 24px
 	
 	& + .CircleBtn
 		position absolute
@@ -15,3 +19,7 @@
 		right 70px
 		bottom 60px
 		margin auto
+		
+		@media $xlMinus
+			right 50px
+			bottom 38px

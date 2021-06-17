@@ -1,14 +1,22 @@
 .MapIcons
+	@media $smMinus
+		overflow auto
+
 	&_list
 		list-style none
 		display grid
-		grid-auto-flow column
-		justify-content space-between
-		padding 40px 40px 46px
+		grid-template-columns repeat(auto-fit, minmax(100px, auto))
+		gap 20px 20px
+		padding 40px 0 46px 40px
 		border-bottom 1px solid $lightGrey
-	
-	&_item
-		margin-right 10px
 		
-		&:last-child
-			margin-right 0
+		@media $xlMinus
+			padding 30px
+		
+		@media $smMinus
+			width 768px
+			padding 34px 25px 25px
+			grid-template-columns repeat(9, 1fr)
+		
+		@media $xs
+			padding 28px 10px 25px
