@@ -1,7 +1,6 @@
 .Advantages
 	position relative
 	padding 130px 0 100px
-	// background $darkBlue url('../img/bg_advantages.png') left bottom no-repeat
 	background $darkBlue
 	
 	@media $xlMinus
@@ -16,7 +15,9 @@
 	&_title
 		position relative
 		z-index 10
-		margin 0 16px -16px
+		// margin 0 16px -16px
+		max-width 320px
+		margin 0 auto -16px
 	
 	&_container
 		padding-left 344px
@@ -35,6 +36,10 @@
 		
 		@media $smMinus
 			margin-bottom 71px
+		
+		@media $xs
+			margin-right auto
+			margin-left auto
 		
 		&:last-child
 			margin-bottom 0

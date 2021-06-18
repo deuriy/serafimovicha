@@ -16,6 +16,8 @@
 		align-items center
 	
 	@media $xs
+		width 360px
+		max-width 100%
 		grid-template-columns 1fr
 		padding-right 0
 	
@@ -142,6 +144,9 @@
 			@media $smMinus
 				order -1
 				padding-bottom 0
+			
+			@media $xs
+				text-align left
 	
 	&-apartments
 		grid-template-columns 36.1% 494px

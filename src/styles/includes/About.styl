@@ -1,28 +1,25 @@
 .About
 	position relative
 	z-index 10
-	background url('../img/bg_about.png') right 53% / 64% auto no-repeat, linear-gradient(0deg, $white 0%, $beige 100%)
+	background url('../img/bg_about.png') right 146px / auto no-repeat, linear-gradient(0deg, $white 0%, $beige 100%)
 	overflow hidden
 	
 	@media $xlMinus
 		background-position right 51.5%
 		background-size 63.8% auto
+		// background url('../img/bg_about.png') right 53% / 64% auto no-repeat, linear-gradient(0deg, $white 0%, $beige 100%)
 	
 	@media $smMinus
-		background-position right 65%
-		background-size 66% auto
+		background url('../img/bg_about_tablet.png') right 455px / auto no-repeat, linear-gradient(0deg, $white 0%, $beige 100%)
 	
 	@media $xs
-		background url('../img/bg_about_mob.png') right 77.3% / 71% auto no-repeat, linear-gradient(0deg, $white 0%, $beige 100%)
+		background url('../img/bg_about_mob.png') right 475px / 228px auto no-repeat, linear-gradient(0deg, $white 0%, $beige 100%)
 	
 	&_contactsBlock
 		position absolute
-		// position sticky
 		z-index 10
 		top 0
 		right 0
-		// margin-left 100%
-		// transform translateX(-100%)
 	
 	&_container
 		position relative

@@ -7,7 +7,8 @@
 		padding 78px 0 121px 344px
 		
 		@media $xlMinus
-			width 1170px
+			// width 1170px
+			width 1270px
 			padding 58px 0 73px 244px
 		
 		@media $smMinus
@@ -29,6 +30,36 @@
 		@media $xs
 			margin-bottom 24px
 			padding-left 16px
+	
+	&_map
+		position relative
+		// height 382px
+		height 538px
+		overflow hidden
+		
+		@media $xlMinus
+			height 382px
+		
+		@media $xs
+			height 422px
+	
+	&_mapImg
+		position absolute
+		top 0
+		// right 0
+		// bottom 0
+		left 0
+		width 1304px
+		// width 926px
+		max-width none
+		margin auto
+		
+		@media $xlMinus
+			top -140px
+		
+		@media $xs
+			top -120px
+			left -300px
 	
 	&_icons
 		margin-bottom 40px

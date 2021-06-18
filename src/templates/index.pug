@@ -62,7 +62,7 @@ block content
       .AdvantagesSlider.swiper-container#AdvantagesSlider.hidden-smPlus
         .swiper-wrapper
           .swiper-slide
-            .Advantage.Advantage-modernArchitecture
+            .Advantage.Advantage-modernArchitecture.Advantages_item
               .Advantage_imgWrapper
                 img(src="/img/advantage_1_mob.png" alt="Все самое лучшее — для вас").Advantage_img
               .Advantage_textWrapper
@@ -70,17 +70,17 @@ block content
                 .Advantage_text
                   p Квартал на «Серафимовича» - это невысокие, полностью кирпичные дома, 9 этажей, в комплексе спроектирован подземный теплый паркинг. Комплекс будет состоять из 2-х домов (195 квартир)
           .swiper-slide
-            .Advantage.Advantage-mop
+            .Advantage.Advantage-mop.Advantages_item
               .Advantage_imgWrapper
-                img(src="/img/advantage_1_mob.png" alt="Все самое лучшее — для вас").Advantage_img
+                img(src="/img/advantage_2_tablet.png" alt="Все самое лучшее — для вас").Advantage_img
               .Advantage_textWrapper
                 h3.Advantage_title Современные МОПы
                 .Advantage_text
                   p Все квартиры в квартале на Серафимовича сдаются под чистовую отделку. Стены выровнены и оштукатурены. На полу - стяжка. Установлены окна и двери. Сделана разводка по электрики и водоснабжению. Есть розетки и выключатели.
           .swiper-slide
-            .Advantage.Advantage-apartments
+            .Advantage.Advantage-apartments.Advantages_item
               .Advantage_imgWrapper
-                img(src="/img/advantage_1_mob.png" alt="Все самое лучшее — для вас").Advantage_img
+                img(src="/img/advantage_3.png" alt="Все самое лучшее — для вас").Advantage_img
               .Advantage_textWrapper
                 h3.Advantage_title Малое количество #[br]квартир
                 .Advantage_text
@@ -136,34 +136,39 @@ block content
     .ApartmentChoosing#ApartmentChoosing
       include ./blocks/LeftSidebar
       .ApartmentChoosing_left
-        h2.SectionTitle.ApartmentChoosing_title.hidden-smMinus Выбор квартиры
-        .HousePlan.ApartmentChoosing_housePlan
-          img(src="/img/house_plan.png", alt="План дома").HousePlan_img
-          .RealEstate.HousePlan_realEstate
-            h4.RealEstate_title 2 комнатная
-            .RealEstate_textWrapper
-              .RealEstate_apartmentNumber Квартира № 108
-              ul.RealEstate_characteristics
-                li.RealEstate_characteristic
-                  .RealEstate_characteristicName Площадь:
-                  .RealEstate_characteristicValue 42 м #[sup 2]
-                li.RealEstate_characteristic
-                  .RealEstate_characteristicName Стоимость:
-                  .RealEstate_characteristicValue 7 503 840 ₽
+        .ApartmentChoosing_leftInner
+          .ApartmentChoosing_leftHeader.hidden-mdPlus
+            button(type="button" data-action="closeHousePlan").ApartmentChoosing_closeBtn
+            h3.ApartmentChoosing_subtitle 5 этаж
+          h2.SectionTitle.ApartmentChoosing_title.hidden-smMinus Выбор квартиры
+          .HousePlan.ApartmentChoosing_housePlan
+            img(src="/img/house_plan.png", alt="План дома").HousePlan_img
+            .RealEstate.HousePlan_realEstate
+              h4.RealEstate_title 2 комнатная
+              .RealEstate_textWrapper
+                .RealEstate_apartmentNumber Квартира № 108
+                ul.RealEstate_characteristics
+                  li.RealEstate_characteristic
+                    .RealEstate_characteristicName Площадь:
+                    .RealEstate_characteristicValue 42 м #[sup 2]
+                  li.RealEstate_characteristic
+                    .RealEstate_characteristicName Стоимость:
+                    .RealEstate_characteristicValue 7 503 840 ₽
       .ApartmentChoosing_right
         h3.ApartmentChoosing_subtitle.hidden-smMinus 5 этаж
         h2.SectionTitle.ApartmentChoosing_title.hidden-mdPlus Выбор квартиры
         .ApartmentChoosing_imgWrapper
           img(src="/img/house.png", alt="5 этаж").ApartmentChoosing_img.hidden-smMinus
-          img(src="/img/house_tablet.png", alt="5 этаж").ApartmentChoosing_img.hidden-mdPlus
+          a(href="#" data-action="openHousePlan").ApartmentChoosing_link.hidden-mdPlus
+            img(src="/img/house_tablet.png", alt="5 этаж").ApartmentChoosing_img
     .MapSection
       include ./blocks/LeftSidebar
       .MapSection_container
         h2.SectionTitle.MapSection_title Инфраструктура
         .MapSection_map
-          img(src="/img/map.png" alt="Инфраструктура").MapSection_mapImg.hidden-smMinus
-          img(src="/img/map_tablet.png" alt="Инфраструктура").MapSection_mapImg.hidden-mdPlus.hidden-xs
-          img(src="/img/map_mob.png" alt="Инфраструктура").MapSection_mapImg.hidden-smPlus
+          img(src="/img/map.png" alt="Инфраструктура").MapSection_mapImg
+          //- img(src="/img/map_tablet.png" alt="Инфраструктура").MapSection_mapImg.hidden-mdPlus.hidden-xs
+          //- img(src="/img/map_tablet.png" alt="Инфраструктура").MapSection_mapImg.hidden-smPlus
         .MapIcons.MapSection_icons
           ul.MapIcons_list
             li.MapIcons_item

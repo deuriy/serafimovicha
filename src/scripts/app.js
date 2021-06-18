@@ -20,6 +20,7 @@ const heroSlider = new Swiper('.HeroSlider', {
 });
 
 const advantagesSlider = new Swiper('.AdvantagesSlider', {
+	loop: true,
 	effect: 'fade',
   fadeEffect: {
     crossFade: true
@@ -41,8 +42,10 @@ const advantagesSlider = new Swiper('.AdvantagesSlider', {
 let planningSolutionsSliders = [];
 document.querySelectorAll('.PlanningSolutionsSlider').forEach(item => {
 	planningSolutionsSliders.push(new Swiper(`#${item.id}`, {
-		slidesPerView: 1,
+		slidesPerView: 'auto',
 		spaceBetween: 16,
+		centeredSlides: true,
+		loop: true,
 
 		pagination: {
 	    el: `#${item.id} .SwiperPagination`,
@@ -57,8 +60,10 @@ document.querySelectorAll('.PlanningSolutionsSlider').forEach(item => {
 
 	  breakpoints: {
 	    768: {
-	      slidesPerView: 'auto',
+	      // slidesPerView: 'auto',
 				spaceBetween: 32,
+				// loop: false,
+				// centeredSlides: false
 	    },
 	    1200: {
 	      slidesPerView: 3,
@@ -220,4 +225,48 @@ document.addEventListener('click', function(e) {
   	overlay.classList.add('Overlay-hidden');
   }
   e.preventDefault();
-})
+});
+
+document.addEventListener('click', function (e) {
+	let openHousePlan = e.target.closest('[data-action="openHousePlan"]');
+
+	if (!openHousePlan) return;
+
+	let apartmentChoosing = openHousePlan.closest('.ApartmentChoosing');
+	let apartmentChoosingLeft = apartmentChoosing.querySelector('.ApartmentChoosing_left');
+
+	apartmentChoosingLeft.classList.add('ApartmentChoosing_left-opened');
+
+	e.preventDefault();
+});
+
+document.addEventListener('click', function (e) {
+	let closeHousePlan = e.target.closest('[data-action="closeHousePlan"]');
+
+	if (!closeHousePlan) return;
+
+	let apartmentChoosing = closeHousePlan.closest('.ApartmentChoosing');
+	let apartmentChoosingLeft = apartmentChoosing.querySelector('.ApartmentChoosing_left');
+
+	apartmentChoosingLeft.classList.remove('ApartmentChoosing_left-opened');
+
+	e.preventDefault();
+});
+
+// document.addEventListener('click', function (e) {
+// 	let dataAnchorLink = e.target.closest('a[data-anchor-link]');
+
+// 	if (!dataAnchorLink) return;
+
+// 	let selector = dataAnchorLink.getAttribute('href');
+// 	let targetElement = document.querySelector(selector);
+
+// 	if (!targetElement) return;
+
+// 	scroll({
+// 		top: targetElement.offsetTop,
+// 		behavior: "smooth"
+// 	});
+
+// 	e.preventDefault();
+// });

@@ -20,10 +20,35 @@
 			position fixed
 			z-index 1000
 			top 0
+			right 0
+			bottom 0
 			left 0
-			transform translateX(-100%)
-			@extend .transition
 			padding-left 30px
+			transform translateX(100%)
+			@extend .transition
+		
+		&-opened
+			transform none
+	
+	&_leftHeader
+		@media $xs
+			display grid
+			justify-content space-between
+			align-content center
+			grid-auto-flow column
+	
+	&_closeBtn
+		justify-self end
+		width 50px
+		height 50px
+		border 1px solid $darkBrown
+		border-radius 50%
+		background $beige url("data:image/svg+xml,%3Csvg width='14' height='14' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M6.221 7L0 .78.78 0l6.999 7-7 7L0 13.22 6.221 7z' fill='%23443732'/%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M7.779 7L14 13.22l-.78.78-7-7 7-7 .78.78L7.779 7z' fill='%23443732'/%3E%3C/svg%3E") center center no-repeat
+		outline none
+		cursor pointer
+		
+		@media $mdPlus
+			display none
 	
 	&_title
 		margin-bottom 120px
@@ -34,6 +59,10 @@
 		@media $smMinus
 			margin-bottom 37px
 			padding-left 30px
+		
+		@media $sm
+			padding-left 0
+			text-align center
 		
 		@media $xs
 			margin-bottom 14px
@@ -51,6 +80,9 @@
 		@media $smMinus
 			padding-top 72px
 		
+		@media $sm
+			justify-content center
+		
 		@media $xs
 			padding-top 37px
 	
@@ -65,6 +97,12 @@
 		@media $xlMinus
 			margin-bottom 32px
 			font-size 38px
+		
+		@media $smMinus
+			font-size 50px
+		
+		@media $xs
+			margin-bottom 0
 	
 	&_img
 		display block
