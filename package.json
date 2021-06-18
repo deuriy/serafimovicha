@@ -1,12 +1,13 @@
 {
   "name": "frontend_builder_boilerplate",
-  "version": "2.1.3",
+  "version": "2.2.0",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "gulp build",
     "dev": "nodemon --watch gulpfile.js --watch package.json --ext js,json,styl --exec gulp dev",
     "prettify": "prettier src/templates/**/*.pug src/scripts/**/*.js --write",
-    "validate": "gulp validate"
+    "validate": "gulp validate",
+    "imagemin": "gulp imagemin"
   },
   "repository": {
     "type": "git",
@@ -20,27 +21,68 @@
     "gulp-connect": "^5.7.0",
     "gulp-debug": "^4.0.0",
     "gulp-html": "^3.4.0",
+    "gulp-imagemin": "^7.1.0",
     "nodemon": "^2.0.7",
     "prettier": "^2.3.0",
     "stylint": "^2.0.0"
   },
   "dependencies": {
     "argv": "0.0.2",
+    "autoprefixer": "^10.2.6",
     "gulp": "^4.0.2",
     "gulp-changed": "^4.0.2",
     "gulp-clean-css": "^4.3.0",
     "gulp-esbuild": "^0.7.7",
     "gulp-filter": "^7.0.0",
     "gulp-if": "^3.0.0",
+    "gulp-postcss": "^9.0.0",
     "gulp-progeny": "^0.4.1",
     "gulp-pug": "^4.0.1",
     "gulp-sourcemaps": "^3.0.0",
     "gulp-stylus": "^2.7.0",
     "gulp-touch-fd": "^2.0.0",
+    "postcss": "^8.3.5",
     "yargs": "^16.2.0"
   },
   "optionalDependencies": {
-    "bootstrap": "5.0.1",
-    "swiper": "^6.6.2"
-  }
+    "swiper": "^6.6.2",
+    "bootstrap": "5.0.1"
+  },
+  "jshintConfig": {
+    "maxerr": 99,
+    "bitwise": true,
+    "curly": true,
+    "eqeqeq": true,
+    "forin": true,
+    "freeze": true,
+    "latedef": true,
+    "noarg": true,
+    "nonbsp": true,
+    "nonew": true,
+    "plusplus": true,
+    "undef": true,
+    "unused": true,
+    "strict": true,
+    "maxparams": 3,
+    "varstmt": true,
+    "esversion": 11,
+    "browser": true,
+    "devel": true,
+    "leanswitch": true,
+    "noreturnawait": true,
+    "regexpu": true,
+    "singleGroups": true,
+    "globals": {}
+  },
+  "prettier": {
+    "printWidth": 99,
+    "arrowParens": "always",
+    "endOfLine": "lf",
+    "tabWidth": 2
+  },
+  "browserslist": [
+    ">1%",
+    "not IE 11",
+    "not dead"
+  ]
 }

@@ -1,3 +1,4 @@
+/* jshint strict: global, node: true */
 "use strict";
 
 const { src, dest, lastRun, series, parallel, watch } = require("gulp");
@@ -12,6 +13,8 @@ const minifyCss = require("gulp-clean-css");
 const progeny = require("gulp-progeny");
 const filter = require("gulp-filter");
 const stylus = require("gulp-stylus");
+const postcss = require("gulp-postcss");
+const autoprefixer = require("autoprefixer");
 // TODO: add in memory fs for builds (or custom dist path)
 // TODO: add the "test" npm script (eslint, html-validator, [csslint])
 
@@ -57,7 +60,7 @@ function scripts() {
         target: ["es2019"],
         bundle: true,
         format: "esm",
-      }),
+      })
     )
     .pipe(changed(CONFIG.scriptsDist, { hasChanged: changed.compareContents }))
     .pipe(dest(CONFIG.scriptsDist))
@@ -74,12 +77,12 @@ function templates() {
         "src/templates/**/*.pug",
         "!src/templates/layouts/*.pug",
         "!src/templates/includes/**/*.pug",
-      ]),
+      ])
     )
     .pipe(
       pug({
         pretty: true,
-      }),
+      })
     )
     .pipe(changed(CONFIG.templatesDist, { hasChanged: changed.compareContents }))
     .pipe(dest(CONFIG.templatesDist))
@@ -96,10 +99,10 @@ function styles() {
       stylus({
         compress: true,
         "include css": true,
-      }),
+      })
     )
+    .pipe(postcss([autoprefixer()]))
     .pipe(gulpif(IS_DEV_MODE, sourcemaps.write()))
-    .pipe(changed(CONFIG.stylesDist, { hasChanged: changed.compareContents }))
     .pipe(
       gulpif(
         IS_PROD_MODE,
@@ -113,9 +116,10 @@ function styles() {
               all: true,
             },
           },
-        }),
-      ),
+        })
+      )
     )
+    .pipe(changed(CONFIG.stylesDist, { hasChanged: changed.compareContents }))
     .pipe(dest(CONFIG.stylesDist))
     .pipe(gulpif(IS_PROD_MODE, touch()))
     .pipe(connect.reload());
@@ -148,6 +152,13 @@ function watchForChanges() {
   watch(CONFIG.assetsSrc, assets);
 }
 
+function imagemin() {
+  const imagemin = require("gulp-imagemin");
+  return src(CONFIG.assetsSrc).pipe(imagemin()).pipe(dest("src/assets"));
+}
+
 exports.build = parallel(templates, styles, scripts, assets);
 exports.dev = series(setEsBuildToIncrementalMode, exports.build, parallel(serve, watchForChanges));
 exports.validate = series(templates, validateHtml);
+exports.imagemin = imagemin;
+
