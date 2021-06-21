@@ -1,25 +1,7 @@
 import { Example } from "./modules/example.js";
 import Swiper from 'swiper/bundle';
 
-const heroSlider = new Swiper('.HeroSlider', {
-	effect: 'fade',
-  fadeEffect: {
-    crossFade: true
-  },
-
-  pagination: {
-    el: '.HeroSlider .SwiperPagination',
-    bulletClass: 'SwiperPagination_bullet',
-    bulletActiveClass: 'SwiperPagination_bullet-active',
-    clickable: true
-  },
-
-  navigation: {
-    nextEl: '.HeroSlider .CircleBtn-next'
-  }
-});
-
-const advantagesSlider = new Swiper('.AdvantagesSlider', {
+const heroSlider = new Swiper('.HeroSlider .swiper-container', {
 	loop: true,
 	effect: 'fade',
   fadeEffect: {
@@ -27,7 +9,26 @@ const advantagesSlider = new Swiper('.AdvantagesSlider', {
   },
 
   pagination: {
-    el: '.AdvantagesSlider .SwiperPagination',
+    el: '.HeroSlider_pagination',
+    bulletClass: 'SwiperPagination_bullet',
+    bulletActiveClass: 'SwiperPagination_bullet-active',
+    clickable: true
+  },
+
+  navigation: {
+    nextEl: '.HeroSlider_circleBtn'
+  }
+});
+
+const advantagesSlider = new Swiper('.AdvantagesSlider .swiper-container', {
+	loop: true,
+	effect: 'fade',
+  fadeEffect: {
+    crossFade: true
+  },
+
+  pagination: {
+    el: '.AdvantagesSlider_pagination',
     bulletClass: 'SwiperPagination_bullet',
     bulletActiveClass: 'SwiperPagination_bullet-active',
     clickable: true
@@ -41,7 +42,7 @@ const advantagesSlider = new Swiper('.AdvantagesSlider', {
 
 let planningSolutionsSliders = [];
 document.querySelectorAll('.PlanningSolutionsSlider').forEach(item => {
-	planningSolutionsSliders.push(new Swiper(`#${item.id}`, {
+	planningSolutionsSliders.push(new Swiper(`#${item.id} .swiper-container`, {
 		slidesPerView: 'auto',
 		spaceBetween: 16,
 		centeredSlides: true,
@@ -60,14 +61,11 @@ document.querySelectorAll('.PlanningSolutionsSlider').forEach(item => {
 
 	  breakpoints: {
 	    768: {
-	      // slidesPerView: 'auto',
-				spaceBetween: 32,
-				// loop: false,
-				// centeredSlides: false
+				spaceBetween: 32
 	    },
 	    1200: {
 	      slidesPerView: 3,
-				spaceBetween: 24,
+				spaceBetween: 24
 	    },
 	    1920: {
 				slidesPerView: 3,
@@ -79,19 +77,19 @@ document.querySelectorAll('.PlanningSolutionsSlider').forEach(item => {
 
 let gallerySliders = [];
 document.querySelectorAll('.GallerySlider').forEach(item => {
-	gallerySliders.push(new Swiper(`#${item.id}`, {
+	gallerySliders.push(new Swiper(`#${item.id} .swiper-container`, {
 		slidesPerView: 'auto',
 		spaceBetween: 65,
 
 		pagination: {
-	    el: `#${item.id} .SwiperPagination`,
+	    el: `#${item.id} .GallerySlider_pagination`,
 	    bulletClass: 'SwiperPagination_bullet',
 	    bulletActiveClass: 'SwiperPagination_bullet-active',
 	    clickable: true
 	  },
 
 	  navigation: {
-	    nextEl: `#${item.id} + .CircleBtn-next`
+	    nextEl: `#${item.id} + .GallerySlider_circleBtn`
 	  },
 		
 		breakpoints: {
@@ -104,13 +102,6 @@ document.querySelectorAll('.GallerySlider').forEach(item => {
 
 
 document.querySelectorAll('.Tabs_list').forEach(tabList => {
-	let activeTabItem = tabList.querySelector('.Tabs_item-active');
-	if (activeTabItem) {
-		let parent = activeTabItem.closest('.Tabs');
-		let tabContent = parent.querySelector(`.Tabs_content:nth-child(${Number(activeTabItem.dataset.index) + 1})`);
-		tabContent.style.display = 'block';
-	}
-
 	tabList.querySelectorAll('.Tabs_item').forEach((tab, tabIndex) => {
 		tab.onclick = () => {
 			let activeTab = tab.parentNode.querySelector('.Tabs_item-active');
@@ -252,21 +243,3 @@ document.addEventListener('click', function (e) {
 
 	e.preventDefault();
 });
-
-// document.addEventListener('click', function (e) {
-// 	let dataAnchorLink = e.target.closest('a[data-anchor-link]');
-
-// 	if (!dataAnchorLink) return;
-
-// 	let selector = dataAnchorLink.getAttribute('href');
-// 	let targetElement = document.querySelector(selector);
-
-// 	if (!targetElement) return;
-
-// 	scroll({
-// 		top: targetElement.offsetTop,
-// 		behavior: "smooth"
-// 	});
-
-// 	e.preventDefault();
-// });

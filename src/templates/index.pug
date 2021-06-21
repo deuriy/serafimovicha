@@ -12,17 +12,18 @@ block content
       .Contacts.HeroSection_contacts.hidden-smMinus
         a.Phone.HeroSection_phone(href="tel:+73833054111") +7 383 305-41-11
         a.OrderCall.HeroSection_orderCall(href="#") Заказать звонок
-      .HeroSlider.swiper-container
-        .swiper-wrapper
-          - for (let i = 0; i < 4; i++) {
-            .swiper-slide
-              .HeroSlide(style="background-image: url('/img/hero_slide_img.png')")
-                .HeroSlide_text
-                  p Жилой комплекс бизнес-класса на ул. Серафимовича
-                h2.SectionTitle.SectionTitle-white.HeroSlide_title Новый уровень благоустройства
-          - }
-        .SwiperPagination
-        button.CircleBtn.CircleBtn-next.hidden-smMinus(type="button")
+      .HeroSlider
+        .swiper-container.HeroSlider_container
+          .swiper-wrapper
+            - for (let i = 0; i < 4; i++) {
+              .swiper-slide
+                .HeroSlide(style="background-image: url('/img/hero_slide_img.png')")
+                  .HeroSlide_text
+                    p Жилой комплекс бизнес-класса на ул. Серафимовича
+                  h2.SectionTitle.SectionTitle-white.HeroSlide_title Новый уровень благоустройства
+            - }
+          .SwiperPagination.HeroSlider_pagination
+          button.CircleBtn.CircleBtn-next.HeroSlider_circleBtn.hidden-smMinus(type="button")
       a.BtnOutline.hidden-smPlus.HeroSection_btn(href="#") Выбрать квартиру
     .About
       include ./blocks/LeftSidebar
@@ -59,32 +60,33 @@ block content
     .Advantages
       include ./blocks/LeftSidebar-white
       h2.SectionTitle.SectionTitle-white.Advantages_title.hidden-smPlus Все самое #[br]лучшее — для вас
-      #AdvantagesSlider.AdvantagesSlider.swiper-container.hidden-smPlus
-        .swiper-wrapper
-          .swiper-slide
-            .Advantage.Advantage-modernArchitecture.Advantages_item
-              .Advantage_imgWrapper
-                img.Advantage_img(src="/img/advantage_1_mob.png", alt="Все самое лучшее — для вас")
-              .Advantage_textWrapper
-                h3.Advantage_title Современная #[br]архитектура
-                .Advantage_text
-                  p Квартал на «Серафимовича» - это невысокие, полностью кирпичные дома, 9 этажей, в комплексе спроектирован подземный теплый паркинг. Комплекс будет состоять из 2-х домов (195 квартир)
-          .swiper-slide
-            .Advantage.Advantage-mop.Advantages_item
-              .Advantage_imgWrapper
-                img.Advantage_img(src="/img/advantage_2_tablet.png", alt="Все самое лучшее — для вас")
-              .Advantage_textWrapper
-                h3.Advantage_title Современные МОПы
-                .Advantage_text
-                  p Все квартиры в квартале на Серафимовича сдаются под чистовую отделку. Стены выровнены и оштукатурены. На полу - стяжка. Установлены окна и двери. Сделана разводка по электрики и водоснабжению. Есть розетки и выключатели.
-          .swiper-slide
-            .Advantage.Advantage-apartments.Advantages_item
-              .Advantage_imgWrapper
-                img.Advantage_img(src="/img/advantage_3.png", alt="Все самое лучшее — для вас")
-              .Advantage_textWrapper
-                h3.Advantage_title Малое количество #[br]квартир
-                .Advantage_text
-                  p Квартал на «Серафимовича» — это невысокие, полностью кирпичные дома, 9 этажей, в комплексе спроектирован подземный теплый паркинг. Комплекс будет состоять из 2-х домов (195 квартир)
+      #AdvantagesSlider.AdvantagesSlider.hidden-smPlus
+        .swiper-container
+          .swiper-wrapper
+            .swiper-slide
+              .Advantage.Advantage-modernArchitecture.Advantages_item
+                .Advantage_imgWrapper
+                  img.Advantage_img(src="/img/advantage_1_mob.png", alt="Все самое лучшее — для вас")
+                .Advantage_textWrapper
+                  h3.Advantage_title Современная #[br]архитектура
+                  .Advantage_text
+                    p Квартал на «Серафимовича» - это невысокие, полностью кирпичные дома, 9 этажей, в комплексе спроектирован подземный теплый паркинг. Комплекс будет состоять из 2-х домов (195 квартир)
+            .swiper-slide
+              .Advantage.Advantage-mop.Advantages_item
+                .Advantage_imgWrapper
+                  img.Advantage_img(src="/img/advantage_2_tablet.png", alt="Все самое лучшее — для вас")
+                .Advantage_textWrapper
+                  h3.Advantage_title Современные МОПы
+                  .Advantage_text
+                    p Все квартиры в квартале на Серафимовича сдаются под чистовую отделку. Стены выровнены и оштукатурены. На полу - стяжка. Установлены окна и двери. Сделана разводка по электрики и водоснабжению. Есть розетки и выключатели.
+            .swiper-slide
+              .Advantage.Advantage-apartments.Advantages_item
+                .Advantage_imgWrapper
+                  img.Advantage_img(src="/img/advantage_3.png", alt="Все самое лучшее — для вас")
+                .Advantage_textWrapper
+                  h3.Advantage_title Малое количество #[br]квартир
+                  .Advantage_text
+                    p Квартал на «Серафимовича» — это невысокие, полностью кирпичные дома, 9 этажей, в комплексе спроектирован подземный теплый паркинг. Комплекс будет состоять из 2-х домов (195 квартир)
       .Advantages_container.hidden-xs
         .Advantage.Advantage-modernArchitecture.Advantages_item
           .Advantage_imgWrapper
@@ -124,17 +126,22 @@ block content
             li.Tabs_item(data-index="3") 3-комнатные
       .PlanningSolutions_content.Tabs_container
         - for (var i = 0; i < 4; i++)
-          .Tabs_content
-            .PlanningSolutionsSlider.swiper-container.Container.Container-planningSolutionsSlider(
+          if i == 0
+            - var style = 'display: block;'
+          else
+            - var style = ''
+          .Tabs_content(style=style)
+            .PlanningSolutionsSlider.Container.Container-planningSolutionsSlider(
               id='PlanningSolutionsSlider' + i
             )
-              .swiper-wrapper
-                - for(var j = 0; j < 7; j++) {
-                  .swiper-slide.PlanningSolutionsSlider_slide
-                    include ./blocks/PlanSolution
-                - }
-              .SwiperPagination.SwiperPagination-darkBlue
-            button.CircleBtn.CircleBtn-brown.CircleBtn-next.hidden-smMinus(type="button")
+              .swiper-container
+                .swiper-wrapper
+                  - for(var j = 0; j < 7; j++) {
+                    .swiper-slide.PlanningSolutionsSlider_slide
+                      include ./blocks/PlanSolution
+                  - }
+                .SwiperPagination.SwiperPagination-darkBlue.PlanningSolutionsSlider_pagination
+            button.CircleBtn.CircleBtn-brown.CircleBtn-next.PlanningSolutionsSlider_circleBtn.hidden-smMinus(type="button")
     #ApartmentChoosing.ApartmentChoosing
       include ./blocks/LeftSidebar
       .ApartmentChoosing_left
@@ -245,19 +252,24 @@ block content
             li.Tabs_item.Tabs_item-active(data-index="1") Ход строительства
         .Tabs_container
           - for (var i = 0; i < 2; i++)
-            .Tabs_content
-              .GallerySlider.swiper-container(id='GallerySlider' + i)
-                .swiper-wrapper.GallerySlider_wrapper
-                  - for(var j = 0; j < 4; j++) {
-                    .swiper-slide.GallerySlider_slide.hidden-smMinus
-                      img(src="img/gallery_img.jpg")
-                    .swiper-slide.GallerySlider_slide.hidden-mdPlus.hidden-xs
-                      img(src="img/gallery_img_tablet.jpg")
-                    .swiper-slide.GallerySlider_slide.hidden-smPlus
-                      img(src="img/gallery_img_mob.jpg")
-                  - }
-                .SwiperPagination
-              button.CircleBtn.CircleBtn-brown.CircleBtn-whiteBg.CircleBtn-next.hidden-smMinus(type="button")
+            if i == 0
+              - var style = 'display: block;'
+            else
+              - var style = ''
+            .Tabs_content(style=style)
+              .GallerySlider(id='GallerySlider' + i)
+                .swiper-container
+                  .swiper-wrapper.GallerySlider_wrapper
+                    - for(var j = 0; j < 4; j++) {
+                      .swiper-slide.GallerySlider_slide.hidden-smMinus
+                        img(src="img/gallery_img.jpg")
+                      .swiper-slide.GallerySlider_slide.hidden-mdPlus.hidden-xs
+                        img(src="img/gallery_img_tablet.jpg")
+                      .swiper-slide.GallerySlider_slide.hidden-smPlus
+                        img(src="img/gallery_img_mob.jpg")
+                    - }
+                  .SwiperPagination.GallerySlider_pagination
+              button.CircleBtn.CircleBtn-brown.CircleBtn-whiteBg.CircleBtn-next.GallerySlider_circleBtn.hidden-smMinus(type="button")
     .FormSection
       include ./blocks/LeftSidebar
       .FormSection_left
