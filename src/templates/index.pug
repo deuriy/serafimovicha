@@ -120,9 +120,9 @@ block content
         h2.SectionTitle.SectionTitle-brown.PlanningSolutions_title Планировочные #[br]решения
         .Tabs_listWrapper
           ul.Tabs_list
-            li.Tabs_item(data-index="0") Студии
+            li.Tabs_item.Tabs_item-active(data-index="0") Студии
             li.Tabs_item(data-index="1") 1-комнатные
-            li.Tabs_item.Tabs_item-active(data-index="2") 2-комнатные
+            li.Tabs_item(data-index="2") 2-комнатные
             li.Tabs_item(data-index="3") 3-комнатные
       .PlanningSolutions_content.Tabs_container
         - for (var i = 0; i < 4; i++)
@@ -248,8 +248,8 @@ block content
       .GallerySection_container
         .Tabs_listWrapper
           ul.Tabs_list
-            li.Tabs_item(data-index="0") Галерея
-            li.Tabs_item.Tabs_item-active(data-index="1") Ход строительства
+            li.Tabs_item.Tabs_item-active(data-index="0") Галерея
+            li.Tabs_item(data-index="1") Ход строительства
         .Tabs_container
           - for (var i = 0; i < 2; i++)
             if i == 0
