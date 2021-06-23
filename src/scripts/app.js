@@ -1,245 +1,276 @@
-import { Example } from "./modules/example.js";
-import Swiper from 'swiper/bundle';
+import SwiperCore, { Navigation, Pagination, EffectFade } from "swiper/core";
+SwiperCore.use([Navigation, Pagination, EffectFade]);
 
-const heroSlider = new Swiper('.HeroSlider .swiper-container', {
-	loop: true,
-	effect: 'fade',
+const Swiper = SwiperCore;
+
+new Swiper(".HeroSlider .swiper-container", {
+  loop: true,
+  effect: "fade",
   fadeEffect: {
-    crossFade: true
+    crossFade: true,
   },
 
   pagination: {
-    el: '.HeroSlider_pagination',
-    bulletClass: 'SwiperPagination_bullet',
-    bulletActiveClass: 'SwiperPagination_bullet-active',
-    clickable: true
+    el: ".HeroSlider_pagination",
+    bulletClass: "SwiperPagination_bullet",
+    bulletActiveClass: "SwiperPagination_bullet-active",
+    clickable: true,
   },
 
   navigation: {
-    nextEl: '.HeroSlider_circleBtn'
-  }
+    nextEl: ".HeroSlider_circleBtn",
+  },
 });
 
-const advantagesSlider = new Swiper('.AdvantagesSlider .swiper-container', {
-	loop: true,
-	effect: 'fade',
+new Swiper(".AdvantagesSlider .swiper-container", {
+  loop: true,
+  effect: "fade",
   fadeEffect: {
-    crossFade: true
+    crossFade: true,
   },
 
   pagination: {
-    el: '.AdvantagesSlider_pagination',
-    bulletClass: 'SwiperPagination_bullet',
-    bulletActiveClass: 'SwiperPagination_bullet-active',
-    clickable: true
+    el: ".AdvantagesSlider_pagination",
+    bulletClass: "SwiperPagination_bullet",
+    bulletActiveClass: "SwiperPagination_bullet-active",
+    clickable: true,
   },
 
   navigation: {
-    nextEl: '.AdvantagesSlider .CircleBtn-next'
+    nextEl: ".AdvantagesSlider .CircleBtn-next",
+  },
+});
+
+const planningSolutionsSliders = [];
+document.querySelectorAll(".PlanningSolutionsSlider").forEach(function (item) {
+  "use strict";
+  planningSolutionsSliders.push(
+    new Swiper(`#${item.id} .swiper-container`, {
+      slidesPerView: "auto",
+      spaceBetween: 16,
+      centeredSlides: true,
+      loop: true,
+
+      pagination: {
+        el: `#${item.id} .SwiperPagination`,
+        bulletClass: "SwiperPagination_bullet",
+        bulletActiveClass: "SwiperPagination_bullet-active",
+        clickable: true,
+      },
+
+      navigation: {
+        nextEl: `#${item.id} + .CircleBtn-next`,
+      },
+
+      breakpoints: {
+        768: {
+          spaceBetween: 32,
+        },
+        1200: {
+          slidesPerView: 3,
+          spaceBetween: 24,
+        },
+        1920: {
+          slidesPerView: 3,
+          spaceBetween: 32,
+        },
+      },
+    })
+  );
+});
+
+const gallerySliders = [];
+document.querySelectorAll(".GallerySlider").forEach(function (item) {
+  "use strict";
+  gallerySliders.push(
+    new Swiper(`#${item.id} .swiper-container`, {
+      slidesPerView: "auto",
+      spaceBetween: 65,
+
+      pagination: {
+        el: `#${item.id} .GallerySlider_pagination`,
+        bulletClass: "SwiperPagination_bullet",
+        bulletActiveClass: "SwiperPagination_bullet-active",
+        clickable: true,
+      },
+
+      navigation: {
+        nextEl: `#${item.id} + .GallerySlider_circleBtn`,
+      },
+
+      breakpoints: {
+        1920: {
+          spaceBetween: 96,
+        },
+      },
+    })
+  );
+});
+
+document.querySelectorAll(".Tabs_list").forEach(function (tabList) {
+  "use strict";
+  tabList.querySelectorAll(".Tabs_item").forEach(function (tab, tabIndex) {
+    tab.onclick = () => {
+      const activeTab = tab.parentNode.querySelector(".Tabs_item-active");
+
+      if (activeTab) {
+        activeTab.classList.remove("Tabs_item-active");
+      }
+
+      tab.classList.add("Tabs_item-active");
+
+      const parent = tab.closest(".Tabs");
+      const tabsContent = parent.querySelectorAll(".Tabs_content");
+
+      tabsContent.forEach((tabContent) => {
+        tabContent.style.display = "none";
+      });
+
+      tabsContent[tabIndex].style.display = "block";
+
+      const planningSolutionsSlider = tabsContent[tabIndex].querySelector(
+        ".PlanningSolutionsSlider"
+      );
+      if (planningSolutionsSlider) {
+        planningSolutionsSliders[tabIndex].update();
+      }
+
+      const gallerySlider = tabsContent[tabIndex].querySelector(".GallerySlider");
+      if (gallerySlider) {
+        gallerySliders[tabIndex].update();
+      }
+    };
+  });
+});
+
+document.addEventListener("click", function (e) {
+  "use strict";
+  const openMenuLink = e.target.closest(".CircleIcon-menuHamburger");
+
+  if (!openMenuLink) {
+    return;
   }
-});
 
+  const heroSectionNavbar = document.querySelector(".Navbar-heroSection");
 
-let planningSolutionsSliders = [];
-document.querySelectorAll('.PlanningSolutionsSlider').forEach(item => {
-	planningSolutionsSliders.push(new Swiper(`#${item.id} .swiper-container`, {
-		slidesPerView: 'auto',
-		spaceBetween: 16,
-		centeredSlides: true,
-		loop: true,
+  if (!heroSectionNavbar) {
+    return;
+  }
 
-		pagination: {
-	    el: `#${item.id} .SwiperPagination`,
-	    bulletClass: 'SwiperPagination_bullet',
-	    bulletActiveClass: 'SwiperPagination_bullet-active',
-	    clickable: true
-	  },
+  heroSectionNavbar.classList.add("Navbar-opened");
 
-	  navigation: {
-	    nextEl: `#${item.id} + .CircleBtn-next`
-	  },
-
-	  breakpoints: {
-	    768: {
-				spaceBetween: 32
-	    },
-	    1200: {
-	      slidesPerView: 3,
-				spaceBetween: 24
-	    },
-	    1920: {
-				slidesPerView: 3,
-	      spaceBetween: 32
-	    }
-	  }
-	}));
-});
-
-let gallerySliders = [];
-document.querySelectorAll('.GallerySlider').forEach(item => {
-	gallerySliders.push(new Swiper(`#${item.id} .swiper-container`, {
-		slidesPerView: 'auto',
-		spaceBetween: 65,
-
-		pagination: {
-	    el: `#${item.id} .GallerySlider_pagination`,
-	    bulletClass: 'SwiperPagination_bullet',
-	    bulletActiveClass: 'SwiperPagination_bullet-active',
-	    clickable: true
-	  },
-
-	  navigation: {
-	    nextEl: `#${item.id} + .GallerySlider_circleBtn`
-	  },
-		
-		breakpoints: {
-	    1920: {
-	      spaceBetween: 96
-	    }
-	  }
-	}));
-});
-
-
-document.querySelectorAll('.Tabs_list').forEach(tabList => {
-	tabList.querySelectorAll('.Tabs_item').forEach((tab, tabIndex) => {
-		tab.onclick = () => {
-			let activeTab = tab.parentNode.querySelector('.Tabs_item-active');
-
-			if (activeTab) {
-				activeTab.classList.remove('Tabs_item-active');
-			}
-
-			tab.classList.add('Tabs_item-active');
-
-			let parent = tab.closest('.Tabs');
-			let tabsContent = parent.querySelectorAll('.Tabs_content');
-
-			tabsContent.forEach(tabContent => {
-				tabContent.style.display = 'none';
-			});
-
-			tabsContent[tabIndex].style.display = 'block';
-
-			let planningSolutionsSlider = tabsContent[tabIndex].querySelector('.PlanningSolutionsSlider');
-			if (planningSolutionsSlider) {
-				planningSolutionsSliders[tabIndex].update();
-			}
-
-			let gallerySlider = tabsContent[tabIndex].querySelector('.GallerySlider');
-			if (gallerySlider) {
-				gallerySliders[tabIndex].update();
-			}
-		}
-	});
-});
-
-document.addEventListener('click', function(e) {
-  let openMenuLink = e.target.closest('.CircleIcon-menuHamburger');
-
-  if (!openMenuLink) return;
-
-  let heroSectionNavbar = document.querySelector('.Navbar-heroSection');
-
-	if (!heroSectionNavbar) return;
-
-  heroSectionNavbar.classList.add('Navbar-opened');
-
-	document.body.style.overflow = 'hidden';
+  document.body.style.overflow = "hidden";
 
   e.preventDefault();
 });
 
-document.addEventListener('click', function(e) {
-  let closeMenuLink = e.target.closest('.CircleIcon-closeMenu');
+document.addEventListener("click", function (e) {
+  "use strict";
+  const closeMenuLink = e.target.closest(".CircleIcon-closeMenu");
 
-  if (!closeMenuLink) return;
+  if (!closeMenuLink) {
+    return;
+  }
 
-  let heroSectionNavbar = document.querySelector('.Navbar-heroSection');
+  const heroSectionNavbar = document.querySelector(".Navbar-heroSection");
 
-	if (!heroSectionNavbar) return;
+  if (!heroSectionNavbar) {
+    return;
+  }
 
-  heroSectionNavbar.classList.remove('Navbar-opened');
+  heroSectionNavbar.classList.remove("Navbar-opened");
 
-	document.body.style.cssText = '';
+  document.body.style.cssText = "";
 
   e.preventDefault();
 });
 
+document.addEventListener("click", function (e) {
+  "use strict";
+  const menuLink = e.target.closest(".MenuLink");
 
-document.addEventListener('click', function(e) {
-  let menuLink = e.target.closest('.MenuLink');
+  if (!menuLink) {
+    return;
+  }
 
-  if (!menuLink) return;
+  menuLink.classList.add("MenuLink-open");
 
-  menuLink.classList.add('MenuLink-open');
+  const navbar = document.querySelector(".Navbar-offCanvas");
+  const overlay = navbar.nextElementSibling;
 
-  let navbar = document.querySelector('.Navbar-offCanvas');
-  let overlay = navbar.nextElementSibling;
-
-  navbar.classList.add('Navbar-opened');
+  navbar.classList.add("Navbar-opened");
 
   if (overlay) {
-  	overlay.classList.remove('Overlay-hidden');
+    overlay.classList.remove("Overlay-hidden");
   }
   e.preventDefault();
 });
 
-document.addEventListener('click', function(e) {
-  let navbar = document.querySelector('.Navbar-offCanvas');
-  let menuLinkOpened = document.querySelector('.MenuLink-open');
-  let overlay = navbar.nextElementSibling;
+document.addEventListener("click", function (e) {
+  "use strict";
+  const navbar = document.querySelector(".Navbar-offCanvas");
+  const menuLinkOpened = document.querySelector(".MenuLink-open");
+  const overlay = navbar.nextElementSibling;
 
   if (!navbar.contains(e.target) && menuLinkOpened && !menuLinkOpened.contains(e.target)) {
-    navbar.classList.remove('Navbar-opened');
-    menuLinkOpened.classList.remove('MenuLink-open');
+    navbar.classList.remove("Navbar-opened");
+    menuLinkOpened.classList.remove("MenuLink-open");
 
     if (overlay) {
-	  	overlay.classList.add('Overlay-hidden');
-	  }
+      overlay.classList.add("Overlay-hidden");
+    }
   }
 });
 
-document.addEventListener('click', function(e) {
-  let navbarCloseBtn = e.target.closest('.Navbar-offCanvas .Navbar_closeBtn');
+document.addEventListener("click", function (e) {
+  "use strict";
+  const navbarCloseBtn = e.target.closest(".Navbar-offCanvas .Navbar_closeBtn");
 
-  if (!navbarCloseBtn) return;
+  if (!navbarCloseBtn) {
+    return;
+  }
 
-  let navbar = navbarCloseBtn.closest('.Navbar-offCanvas');
-  let menuLink = document.querySelector('.MenuLink');
-  let overlay = navbar.nextElementSibling;
+  const navbar = navbarCloseBtn.closest(".Navbar-offCanvas");
+  const menuLink = document.querySelector(".MenuLink");
+  const overlay = navbar.nextElementSibling;
 
-  navbar.classList.remove('Navbar-opened');
-  menuLink.classList.remove('MenuLink-open');
-  
+  navbar.classList.remove("Navbar-opened");
+  menuLink.classList.remove("MenuLink-open");
+
   if (overlay) {
-  	overlay.classList.add('Overlay-hidden');
+    overlay.classList.add("Overlay-hidden");
   }
   e.preventDefault();
 });
 
-document.addEventListener('click', function (e) {
-	let openHousePlan = e.target.closest('[data-action="openHousePlan"]');
+document.addEventListener("click", function (e) {
+  "use strict";
+  const openHousePlan = e.target.closest('[data-action="openHousePlan"]');
 
-	if (!openHousePlan) return;
+  if (!openHousePlan) {
+    return;
+  }
 
-	let apartmentChoosing = openHousePlan.closest('.ApartmentChoosing');
-	let apartmentChoosingLeft = apartmentChoosing.querySelector('.ApartmentChoosing_left');
+  const apartmentChoosing = openHousePlan.closest(".ApartmentChoosing");
+  const apartmentChoosingLeft = apartmentChoosing.querySelector(".ApartmentChoosing_left");
 
-	apartmentChoosingLeft.classList.add('ApartmentChoosing_left-opened');
+  apartmentChoosingLeft.classList.add("ApartmentChoosing_left-opened");
 
-	e.preventDefault();
+  e.preventDefault();
 });
 
-document.addEventListener('click', function (e) {
-	let closeHousePlan = e.target.closest('[data-action="closeHousePlan"]');
+document.addEventListener("click", function (e) {
+  "use strict";
+  const closeHousePlan = e.target.closest('[data-action="closeHousePlan"]');
 
-	if (!closeHousePlan) return;
+  if (!closeHousePlan) {
+    return;
+  }
 
-	let apartmentChoosing = closeHousePlan.closest('.ApartmentChoosing');
-	let apartmentChoosingLeft = apartmentChoosing.querySelector('.ApartmentChoosing_left');
+  const apartmentChoosing = closeHousePlan.closest(".ApartmentChoosing");
+  const apartmentChoosingLeft = apartmentChoosing.querySelector(".ApartmentChoosing_left");
 
-	apartmentChoosingLeft.classList.remove('ApartmentChoosing_left-opened');
+  apartmentChoosingLeft.classList.remove("ApartmentChoosing_left-opened");
 
-	e.preventDefault();
+  e.preventDefault();
 });

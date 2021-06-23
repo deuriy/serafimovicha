@@ -66,7 +66,10 @@ block content
             .swiper-slide
               .Advantage.Advantage-modernArchitecture.Advantages_item
                 .Advantage_imgWrapper
-                  img.Advantage_img(src="/img/advantage_1_mob.png", alt="Все самое лучшее — для вас")
+                  img.Advantage_img(
+                    src="/img/advantage_1_mob.png",
+                    alt="Все самое лучшее — для вас"
+                  )
                 .Advantage_textWrapper
                   h3.Advantage_title Современная #[br]архитектура
                   .Advantage_text
@@ -74,7 +77,10 @@ block content
             .swiper-slide
               .Advantage.Advantage-mop.Advantages_item
                 .Advantage_imgWrapper
-                  img.Advantage_img(src="/img/advantage_2_tablet.png", alt="Все самое лучшее — для вас")
+                  img.Advantage_img(
+                    src="/img/advantage_2_tablet.png",
+                    alt="Все самое лучшее — для вас"
+                  )
                 .Advantage_textWrapper
                   h3.Advantage_title Современные МОПы
                   .Advantage_text
@@ -90,8 +96,14 @@ block content
       .Advantages_container.hidden-xs
         .Advantage.Advantage-modernArchitecture.Advantages_item
           .Advantage_imgWrapper
-            img.Advantage_img.hidden-smMinus(src="/img/advantage_1.png", alt="Все самое лучшее — для вас")
-            img.Advantage_img.hidden-mdPlus(src="/img/advantage_1_tablet.png", alt="Все самое лучшее — для вас")
+            img.Advantage_img.hidden-smMinus(
+              src="/img/advantage_1.png",
+              alt="Все самое лучшее — для вас"
+            )
+            img.Advantage_img.hidden-mdPlus(
+              src="/img/advantage_1_tablet.png",
+              alt="Все самое лучшее — для вас"
+            )
             h2.SectionTitle.Advantage_sectionTitle Все самое #[br]лучшее — для вас
           .Advantage_textWrapper
             h3.Advantage_title Современная #[br]архитектура
@@ -100,17 +112,32 @@ block content
         .Advantage.Advantage-mop.Advantages_item.Advantages_item-mop
           .Advantage_imgWrapper
             img.Advantage_img.hidden-smMinus(src="/img/advantage_2.png", alt="Современные МОПы")
-            img.Advantage_img.hidden-mdPlus(src="/img/advantage_2_tablet.png", alt="Современные МОПы")
-            img.Advantage_img.Advantage_img-overlay.hidden-smMinus(src="/img/advantage_3.png", alt="Современные МОПы")
-            img.Advantage_img.Advantage_img-overlay.hidden-mdPlus(src="/img/advantage_3_tablet.png", alt="Современные МОПы")
+            img.Advantage_img.hidden-mdPlus(
+              src="/img/advantage_2_tablet.png",
+              alt="Современные МОПы"
+            )
+            img.Advantage_img.Advantage_img-overlay.hidden-smMinus(
+              src="/img/advantage_3.png",
+              alt="Современные МОПы"
+            )
+            img.Advantage_img.Advantage_img-overlay.hidden-mdPlus(
+              src="/img/advantage_3_tablet.png",
+              alt="Современные МОПы"
+            )
           .Advantage_textWrapper
             h3.Advantage_title Современные МОПы
             .Advantage_text
               p Все квартиры в квартале на Серафимовича сдаются под чистовую отделку. Стены выровнены и оштукатурены. На полу - стяжка. Установлены окна и двери. Сделана разводка по электрики и водоснабжению. Есть розетки и выключатели.
         .Advantage.Advantage-apartments.Advantages_item
           .Advantage_imgWrapper
-            img.Advantage_img.hidden-smMinus(src="/img/advantage_4.png", alt="Малое количество квартир")
-            img.Advantage_img.hidden-mdPlus(src="/img/advantage_4_tablet.png", alt="Малое количество квартир")
+            img.Advantage_img.hidden-smMinus(
+              src="/img/advantage_4.png",
+              alt="Малое количество квартир"
+            )
+            img.Advantage_img.hidden-mdPlus(
+              src="/img/advantage_4_tablet.png",
+              alt="Малое количество квартир"
+            )
           .Advantage_textWrapper
             h3.Advantage_title Малое количество #[br]квартир
             .Advantage_text
@@ -127,9 +154,9 @@ block content
       .PlanningSolutions_content.Tabs_container
         - for (var i = 0; i < 4; i++)
           if i == 0
-            - var style = 'display: block;'
+            - var style = 'display: block;';
           else
-            - var style = ''
+            - var style = '';
           .Tabs_content(style=style)
             .PlanningSolutionsSlider.Container.Container-planningSolutionsSlider(
               id='PlanningSolutionsSlider' + i
@@ -141,7 +168,9 @@ block content
                       include ./blocks/PlanSolution
                   - }
                 .SwiperPagination.SwiperPagination-darkBlue.PlanningSolutionsSlider_pagination
-            button.CircleBtn.CircleBtn-brown.CircleBtn-next.PlanningSolutionsSlider_circleBtn.hidden-smMinus(type="button")
+            button.CircleBtn.CircleBtn-brown.CircleBtn-next.PlanningSolutionsSlider_circleBtn.hidden-smMinus(
+              type="button"
+            )
     #ApartmentChoosing.ApartmentChoosing
       include ./blocks/LeftSidebar
       .ApartmentChoosing_left
@@ -253,23 +282,25 @@ block content
         .Tabs_container
           - for (var i = 0; i < 2; i++)
             if i == 0
-              - var style = 'display: block;'
+              - var style = 'display: block;';
             else
-              - var style = ''
+              - var style = '';
             .Tabs_content(style=style)
               .GallerySlider(id='GallerySlider' + i)
                 .swiper-container
                   .swiper-wrapper.GallerySlider_wrapper
                     - for(var j = 0; j < 4; j++) {
                       .swiper-slide.GallerySlider_slide.hidden-smMinus
-                        img(src="img/gallery_img.jpg")
+                        img(src="img/gallery_img.jpg", alt="")
                       .swiper-slide.GallerySlider_slide.hidden-mdPlus.hidden-xs
-                        img(src="img/gallery_img_tablet.jpg")
+                        img(src="img/gallery_img_tablet.jpg", alt="")
                       .swiper-slide.GallerySlider_slide.hidden-smPlus
-                        img(src="img/gallery_img_mob.jpg")
+                        img(src="img/gallery_img_mob.jpg", alt="")
                     - }
                   .SwiperPagination.GallerySlider_pagination
-              button.CircleBtn.CircleBtn-brown.CircleBtn-whiteBg.CircleBtn-next.GallerySlider_circleBtn.hidden-smMinus(type="button")
+              button.CircleBtn.CircleBtn-brown.CircleBtn-whiteBg.CircleBtn-next.GallerySlider_circleBtn.hidden-smMinus(
+                type="button"
+              )
     .FormSection
       include ./blocks/LeftSidebar
       .FormSection_left
@@ -285,4 +316,6 @@ block content
       .FormSection_right
         h2.SectionTitle.SectionTitle-white.FormSection_title Перейти к выбору квартиры
         a.CircleBtn.CircleBtn-small.CircleBtn-arrowTop(href="#ApartmentChoosing")
-      a.CircleBtn.CircleBtn-small.CircleBtn-orange.CircleBtn-darkBlueBg.CircleBtn-arrowTop.FormSection_circleBtn.hidden-smMinus(href="#HeroSection")
+      a.CircleBtn.CircleBtn-small.CircleBtn-orange.CircleBtn-darkBlueBg.CircleBtn-arrowTop.FormSection_circleBtn.hidden-smMinus(
+        href="#HeroSection"
+      )
