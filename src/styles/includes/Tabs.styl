@@ -4,8 +4,7 @@
       overflow auto
 
   &_list
-    display grid
-    grid-auto-flow column
+    white-space nowrap
     padding-right 16px
     list-style none
     
@@ -14,7 +13,6 @@
     
     @media $smMinus
       justify-content start
-      width 768px
       padding-right 0
   
   &_item
@@ -28,6 +26,7 @@
     color $darkBlue
     cursor pointer
     white-space nowrap
+    display inline-block
     @extend .transition
     
     @media $xlMinus
@@ -41,8 +40,16 @@
       padding-bottom 4px
       font-size 24px
 
+    @media $sm
       &:first-child
         margin-left 0
+
+    @media $xs
+      &:first-child
+        margin-left 15px
+
+      &:last-child
+        margin-right 15px
     
     &-active,
     &:hover
