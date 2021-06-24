@@ -282,3 +282,34 @@ document.addEventListener("click", function (e) {
 
   e.preventDefault();
 });
+
+const estateObjCardTpl = document.querySelector("#estateObjCardTpl").content;
+
+$(".HousePlan_scheme").tooltip({
+  items: ".HousePlan_item",
+  show: false,
+  hide: false,
+  track: true,
+  content: function () {
+    "use strict";
+    const $el = $(this);
+    const tplNode = estateObjCardTpl.cloneNode(true);
+
+    tplNode
+      .querySelector(".RealEstate_title")
+      .insertAdjacentHTML("afterbegin", $el.data("bedrooms"));
+
+    tplNode
+      .querySelector(".RealEstate_apartmentNumber")
+      .insertAdjacentHTML("beforeend", $el.data("num"));
+
+    tplNode
+      .querySelector(".RealEstate_characteristicValue-footage")
+      .insertAdjacentHTML("afterbegin", $el.data("footage"));
+
+    tplNode
+      .querySelector(".RealEstate_characteristicValue-price")
+      .insertAdjacentHTML("afterbegin", $el.data("price").toLocaleString());
+    return tplNode;
+  },
+});

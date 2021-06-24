@@ -180,17 +180,18 @@ block content
           .HousePlan.ApartmentChoosing_housePlan
             img.HousePlan_img(src="/img/house_plan.png", alt="План дома")
             include includes/floor_plan_svg
-            .RealEstate.HousePlan_realEstate
-              h4.RealEstate_title 2 комнатная
-              .RealEstate_textWrapper
-                .RealEstate_apartmentNumber Квартира № 108
-                ul.RealEstate_characteristics
-                  li.RealEstate_characteristic
-                    .RealEstate_characteristicName Площадь:
-                    .RealEstate_characteristicValue 42 м #[sup 2]
-                  li.RealEstate_characteristic
-                    .RealEstate_characteristicName Стоимость:
-                    .RealEstate_characteristicValue 7 503 840 ₽
+            template#estateObjCardTpl
+              .RealEstate
+                h4.RealEstate_title комнатная
+                .RealEstate_textWrapper
+                  .RealEstate_apartmentNumber Квартира №
+                  ul.RealEstate_characteristics
+                    li.RealEstate_characteristic
+                      .RealEstate_characteristicName Площадь: 
+                      .RealEstate_characteristicValue.RealEstate_characteristicValue-footage м #[sup 2]
+                    li.RealEstate_characteristic
+                      .RealEstate_characteristicName Стоимость: 
+                      .RealEstate_characteristicValue.RealEstate_characteristicValue-price  ₽
       .ApartmentChoosing_right
         h3.ApartmentChoosing_subtitle.hidden-smMinus 5 этаж
         h2.SectionTitle.ApartmentChoosing_title.hidden-mdPlus Выбор квартиры
@@ -204,8 +205,6 @@ block content
         h2.SectionTitle.MapSection_title Инфраструктура
         .MapSection_map
           img.MapSection_mapImg(src="/img/map.png", alt="Инфраструктура")
-          //- img(src="/img/map_tablet.png" alt="Инфраструктура").MapSection_mapImg.hidden-mdPlus.hidden-xs
-          //- img(src="/img/map_tablet.png" alt="Инфраструктура").MapSection_mapImg.hidden-smPlus
         .MapIcons.MapSection_icons
           ul.MapIcons_list
             li.MapIcons_item
