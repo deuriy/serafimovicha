@@ -1,97 +1,97 @@
 .Tabs
-	&_listWrapper
-		@media $smMinus
-			overflow auto
+  &_listWrapper
+    @media $smMinus
+      overflow auto
 
-	&_list
-		display grid
-		grid-auto-flow column
-		padding-right 16px
-		list-style none
-		
-		@media $xlMinus
-			padding-right 14px
-		
-		@media $smMinus
-			justify-content start
-			width 768px
-			padding-right 0
-	
-	&_item
-		margin-left 25px
-		padding-top 4px
-		padding-bottom 4px
-		border-bottom 1px solid transparent
-		font-size 24px
-		line-height 1.08333
-		font-family $forum
-		color $darkBlue
-		cursor pointer
-		white-space nowrap
-		@extend .transition
-		
-		@media $xlMinus
-			margin-left 18px
-			padding-top 2px
-			padding-bottom 2px
-			font-size 18px
-		
-		@media $smMinus
-			margin-left 25px
-			padding-bottom 4px
-			font-size 24px
+  &_list
+    display grid
+    grid-auto-flow column
+    padding-right 16px
+    list-style none
+    
+    @media $xlMinus
+      padding-right 14px
+    
+    @media $smMinus
+      justify-content start
+      width 768px
+      padding-right 0
+  
+  &_item
+    margin-left 25px
+    padding-top 4px
+    padding-bottom 4px
+    border-bottom 1px solid transparent
+    font-size 24px
+    line-height 1.08333
+    font-family $forum
+    color $darkBlue
+    cursor pointer
+    white-space nowrap
+    @extend .transition
+    
+    @media $xlMinus
+      margin-left 18px
+      padding-top 2px
+      padding-bottom 2px
+      font-size 18px
+    
+    @media $smMinus
+      margin-left 25px
+      padding-bottom 4px
+      font-size 24px
 
-			&:first-child
-				margin-left 0
-		
-		&-active,
-		&:hover
-			border-bottom-color $brown
-			color $brown
-	
-	&_content
-		display none
-		position relative
-	
-	&-gallerySection
-		.Tabs_list
-			padding-right 0
-			justify-content start
-			margin-bottom 74px
+      &:first-child
+        margin-left 0
+    
+    &-active,
+    &:hover
+      border-bottom-color $brown
+      color $brown
+  
+  &_content
+    display none
+    position relative
+  
+  &-gallerySection
+    .Tabs_list
+      padding-right 0
+      justify-content start
+      margin-bottom 74px
 
-			@media $xlMinus
-				margin-bottom 55px
-			
-			@media $smMinus
-				width auto
-				margin-bottom 32px
-				padding-left 30px
-			
-			@media $xs
-				padding-left 16px
-		
-		.Tabs_item
-			margin-right 140px
-			margin-left 0
-			padding-bottom 0
-			border-bottom none
-			font-size 80px
+      @media $xlMinus
+        margin-bottom 55px
+      
+      @media $smMinus
+        width auto
+        margin-bottom 32px
+        padding-left 30px
+      
+      @media $xs
+        padding-left 16px
+    
+    .Tabs_item
+      margin-right 140px
+      margin-left 0
+      padding-bottom 0
+      border-bottom none
+      font-size 80px
 
-			@media $xlMinus
-				margin-right 100px
-				font-size 57px
-			
-			@media $smMinus
-				margin-right 42px
-				font-size 40px
-				line-height 1.1
-			
-			@media $xs
-				margin-right 24px
-				font-size 24px
-			
-			&:not(.Tabs_item-active)
-				color $white
-			
-			&:last-child
-				margin-right 0
+      @media $xlMinus
+        margin-right 100px
+        font-size 57px
+      
+      @media $smMinus
+        margin-right 42px
+        font-size 40px
+        line-height 1.1
+      
+      @media $xs
+        margin-right 24px
+        font-size 24px
+      
+      &:not(.Tabs_item-active)
+        color $white
+      
+      &:last-child
+        margin-right 0
