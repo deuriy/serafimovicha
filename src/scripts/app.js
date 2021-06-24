@@ -86,6 +86,7 @@ document.querySelectorAll(".GallerySlider").forEach(function (item) {
     new Swiper(`#${item.id} .swiper-container`, {
       slidesPerView: "auto",
       spaceBetween: 65,
+      centeredSlides: true,
 
       pagination: {
         el: `#${item.id} .GallerySlider_pagination`,
