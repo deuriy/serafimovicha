@@ -32,13 +32,11 @@
     font-size 64px
     line-height 1.09375
     
-    // @media $xlMinus
-    //   margin-bottom -7px
-    //   font-size 50px
+    @media $md
+      font-size 50px
     
     @media $smMinus
       margin-bottom -10px
-      // font-size 64px
   
   &_text
     font-size 21px
@@ -49,20 +47,17 @@
       margin-left 10px
       letter-spacing -1px
       font-size 24px
-    
-    // @media $xlMinus
-    //   font-size 15px
-    
-    // @media $smMinus
-    //   font-size 21px
   
   &-inline
     .Statistics_list
       display grid
-      // grid-template-columns repeat(auto-fit, minmax(80px, 1fr))
       grid-template-columns repeat(auto-fit,minmax(50px, auto))
       justify-content start
       column-gap 67px
+
+      @media $md
+        column-gap 38px
+        padding-right 16p
 
       @media $smMinus
         column-gap 78px
@@ -81,13 +76,13 @@
     
     .Statistics_number
       margin-bottom 0
-
-      // @media $xlMinus
-      //   margin-bottom -4px
     
     .Statistics_text
       font-size 18px
       line-height 1.11
+
+      @media $md
+        font-size 16px
 
       @media $xs
         margin-top 2px
@@ -95,6 +90,3 @@
         font-size 24px
         line-height 1.5
         letter-spacing 0
-
-      // @media $xlMinus
-      //   font-size 13px
