@@ -16,33 +16,33 @@
   "author": "khv2online@gmail.com",
   "license": "UNLICENSED",
   "devDependencies": {
-    "@prettier/plugin-pug": "^1.15.2",
-    "eslint": "^7.26.0",
+    "@prettier/plugin-pug": "^1.15.3",
     "gulp-connect": "^5.7.0",
     "gulp-debug": "^4.0.0",
-    "gulp-html": "^3.4.0",
+    "gulp-html": "^3.4.2",
     "gulp-imagemin": "^7.1.0",
     "nodemon": "^2.0.7",
-    "prettier": "^2.3.0",
+    "prettier": "^2.3.1",
+    "jshint": "^2.13.0",
     "stylint": "^2.0.0"
   },
   "dependencies": {
     "argv": "0.0.2",
     "autoprefixer": "^10.2.6",
     "gulp": "^4.0.2",
-    "gulp-changed": "^4.0.2",
+    "gulp-changed": "^4.0.3",
     "gulp-clean-css": "^4.3.0",
-    "gulp-esbuild": "^0.7.7",
+    "gulp-esbuild": "^0.8.2",
     "gulp-filter": "^7.0.0",
     "gulp-if": "^3.0.0",
     "gulp-postcss": "^9.0.0",
     "gulp-progeny": "^0.4.1",
-    "gulp-pug": "^4.0.1",
+    "gulp-pug": "^5.0.0",
     "gulp-sourcemaps": "^3.0.0",
     "gulp-stylus": "^2.7.0",
     "gulp-touch-fd": "^2.0.0",
     "postcss": "^8.3.5",
-    "yargs": "^16.2.0"
+    "yargs": "^17.0.1"
   },
   "optionalDependencies": {
     "swiper": "^6.6.2",
@@ -72,6 +72,9 @@
     "noreturnawait": true,
     "regexpu": true,
     "singleGroups": true,
+    "predef": [
+      "__DEBUG__"
+    ],
     "globals": {}
   },
   "prettier": {
