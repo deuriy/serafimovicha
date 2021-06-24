@@ -1,0 +1,22 @@
+.Ratio
+  position relative
+
+  &::before
+    display block
+    padding-top 100%
+    content ""
+
+  &_item
+    position: absolute
+    top 0
+    left 0
+    width 100%
+    height 100%
+
+  &-32x40
+    &::before
+      padding-top 125%
+
+img.Ratio_item
+  object-fit cover
+    
