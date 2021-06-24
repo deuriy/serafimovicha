@@ -1,10 +1,18 @@
 .ContactsBlock
+  $height=192px
   display grid
   grid-template-columns repeat(2, 1fr)
   width 575px
   max-width 100%
-  padding 72px 25px
+  padding 0 25px
   background rgba($darkBrown, 50%)
+  height $height
+  margin-bottom -($height)
+  align-items center
+  margin-left auto
+  position sticky
+  top 0
+  z-index 99
   
   @media $xlMinus
     width 408px

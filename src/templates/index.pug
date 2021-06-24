@@ -25,14 +25,15 @@ block content
           .SwiperPagination.HeroSlider_pagination
           button.CircleBtn.CircleBtn-next.HeroSlider_circleBtn.hidden-smMinus(type="button")
       a.BtnOutline.hidden-smPlus.HeroSection_btn(href="#") Выбрать квартиру
+
+    .ContactsBlock.hidden-smMinus
+      .ContactsBlock_left
+        a.Phone.ContactsBlock_phone(href="tel:+73833054111") +7 383 305-41-11
+        a.OrderCall.ContactsBlock_orderCall(href="#") Заказать звонок
+      .ContactsBlock_right
+        a.BtnOutline(href="#") Выбрать квартиру
     .About
       include ./blocks/LeftSidebar
-      .ContactsBlock.About_contactsBlock.hidden-smMinus
-        .ContactsBlock_left
-          a.Phone.ContactsBlock_phone(href="tel:+73833054111") +7 383 305-41-11
-          a.OrderCall.ContactsBlock_orderCall(href="#") Заказать звонок
-        .ContactsBlock_right
-          a.BtnOutline(href="#") Выбрать квартиру
       .About_container
         h2.SectionTitle.About_title О проекте
         .About_text
