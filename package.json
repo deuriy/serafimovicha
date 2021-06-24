@@ -76,7 +76,6 @@
   },
   "prettier": {
     "printWidth": 99,
-    "arrowParens": "always",
     "endOfLine": "lf",
     "tabWidth": 2
   },
