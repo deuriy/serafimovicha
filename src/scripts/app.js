@@ -1,9 +1,7 @@
-import SwiperCore, { Navigation, Pagination, EffectFade } from "swiper/core";
-SwiperCore.use([Navigation, Pagination, EffectFade]);
-
-const Swiper = SwiperCore;
-
 new Swiper(".HeroSlider .swiper-container", {
+  a11y: {
+    enabled: false,
+  },
   loop: true,
   effect: "fade",
   fadeEffect: {
@@ -23,6 +21,9 @@ new Swiper(".HeroSlider .swiper-container", {
 });
 
 new Swiper(".AdvantagesSlider .swiper-container", {
+  a11y: {
+    enabled: false,
+  },
   loop: true,
   effect: "fade",
   fadeEffect: {
@@ -46,6 +47,9 @@ document.querySelectorAll(".PlanningSolutionsSlider").forEach(function (item) {
   "use strict";
   planningSolutionsSliders.push(
     new Swiper(`#${item.id} .swiper-container`, {
+      a11y: {
+        enabled: false,
+      },
       slidesPerView: "auto",
       spaceBetween: 16,
       centeredSlides: true,
@@ -84,6 +88,9 @@ document.querySelectorAll(".GallerySlider").forEach(function (item) {
   "use strict";
   gallerySliders.push(
     new Swiper(`#${item.id} .swiper-container`, {
+      a11y: {
+        enabled: false,
+      },
       slidesPerView: "auto",
       spaceBetween: 65,
       centeredSlides: true,

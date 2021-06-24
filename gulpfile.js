@@ -15,6 +15,7 @@ const filter = require("gulp-filter");
 const stylus = require("gulp-stylus");
 const postcss = require("gulp-postcss");
 const autoprefixer = require("autoprefixer");
+const concat = require("gulp-concat");
 // TODO: add in memory fs for builds (or custom dist path)
 // TODO: add the "test" npm script (eslint, html-validator, [csslint])
 
@@ -54,8 +55,7 @@ function scripts() {
         sourcemap: IS_DEV_MODE ? "inline" : false,
         define: { __DEBUG__: IS_DEV_MODE },
         minifyWhitespace: true,
-        // TODO: use es-modules or single file bundles instead of vendors bundles with global variables
-        // minifyIdentifiers: IS_PROD_MODE,
+        minifyIdentifiers: IS_PROD_MODE,
         minifySyntax: IS_PROD_MODE,
         target: ["es2019"],
         bundle: true,
@@ -65,6 +65,14 @@ function scripts() {
     .pipe(changed(CONFIG.scriptsDist, { hasChanged: changed.compareContents }))
     .pipe(dest(CONFIG.scriptsDist))
     .pipe(connect.reload());
+}
+
+function vendorJs() {
+  return src(["src/vendor/js/*.js"]).pipe(concat("vendor.js")).pipe(dest(CONFIG.scriptsDist));
+}
+
+function vendorCss() {
+  return src(["src/vendor/css/*.css"]).pipe(concat("vendor.css")).pipe(dest(CONFIG.stylesDist));
 }
 
 function templates() {
@@ -151,6 +159,8 @@ function watchForChanges() {
   watch([CONFIG.stylesWatch], styles);
   watch([CONFIG.scriptsWatch], scripts);
   watch(CONFIG.assetsSrc, assets);
+  watch("src/vendor/css", vendorCss);
+  watch("src/vendor/js", vendorJs);
 }
 
 function imagemin() {
@@ -158,8 +168,7 @@ function imagemin() {
   return src(CONFIG.assetsSrc).pipe(imagemin()).pipe(dest("src/assets"));
 }
 
-exports.build = parallel(templates, styles, scripts, assets);
+exports.build = parallel(templates, styles, scripts, vendorJs, vendorCss, assets);
 exports.dev = series(setEsBuildToIncrementalMode, exports.build, parallel(serve, watchForChanges));
 exports.validate = series(templates, validateHtml);
 exports.imagemin = imagemin;
-
