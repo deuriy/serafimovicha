@@ -1,100 +1,100 @@
 .Statistics
-	&_label
-		margin-bottom 20px
-		color $brown
-		line-height 1.25
-		
-	&_list
-		list-style none
-		font-family $forum
-	
-	&_item
-		margin-bottom 40px
-		
-		@media $xlMinus
-			margin-bottom 29px
-		
-		@media $smMinus
-			margin-bottom 34px
-		
-		@media $xs
-			display grid
-			grid-auto-flow column
-			justify-content start
-			align-items center
-			margin-bottom 19px
-		
-		&:last-child
-			margin-bottom 0
-	
-	&_number
-		margin-bottom -0.1em
-		font-size 64px
-		line-height 1.09375
-		
-		// @media $xlMinus
-		// 	margin-bottom -7px
-		// 	font-size 50px
-		
-		@media $smMinus
-			margin-bottom -10px
-			// font-size 64px
-	
-	&_text
-		font-size 21px
-		line-height 1.09523
+  &_label
+    margin-bottom 20px
+    color $brown
+    line-height 1.25
+    
+  &_list
+    list-style none
+    font-family $forum
+  
+  &_item
+    margin-bottom 40px
+    
+    @media $xlMinus
+      margin-bottom 29px
+    
+    @media $smMinus
+      margin-bottom 34px
+    
+    @media $xs
+      display grid
+      grid-auto-flow column
+      justify-content start
+      align-items center
+      margin-bottom 19px
+    
+    &:last-child
+      margin-bottom 0
+  
+  &_number
+    margin-bottom -0.1em
+    font-size 64px
+    line-height 1.09375
+    
+    // @media $xlMinus
+    //   margin-bottom -7px
+    //   font-size 50px
+    
+    @media $smMinus
+      margin-bottom -10px
+      // font-size 64px
+  
+  &_text
+    font-size 21px
+    line-height 1.09523
 
-		@media $xs
-			margin-top 5px
-			margin-left 10px
-			letter-spacing -1px
-			font-size 24px
-		
-		// @media $xlMinus
-		// 	font-size 15px
-		
-		// @media $smMinus
-		// 	font-size 21px
-	
-	&-inline
-		.Statistics_list
-			display grid
-			// grid-template-columns repeat(auto-fit, minmax(80px, 1fr))
-			grid-template-columns repeat(auto-fit,minmax(50px, auto))
-			justify-content start
-			column-gap 67px
+    @media $xs
+      margin-top 5px
+      margin-left 10px
+      letter-spacing -1px
+      font-size 24px
+    
+    // @media $xlMinus
+    //   font-size 15px
+    
+    // @media $smMinus
+    //   font-size 21px
+  
+  &-inline
+    .Statistics_list
+      display grid
+      // grid-template-columns repeat(auto-fit, minmax(80px, 1fr))
+      grid-template-columns repeat(auto-fit,minmax(50px, auto))
+      justify-content start
+      column-gap 67px
 
-			@media $smMinus
-				column-gap 78px
-				grid-template-columns repeat(auto-fit,minmax(85px, auto))
+      @media $smMinus
+        column-gap 78px
+        grid-template-columns repeat(auto-fit,minmax(85px, auto))
 
-			@media $xs
-				gap 25px 0
-				grid-template-columns 1fr
-		
-		.Statistics_item
-			margin-bottom 0
+      @media $xs
+        gap 25px 0
+        grid-template-columns 1fr
+    
+    .Statistics_item
+      margin-bottom 0
 
-			@media $xs
-				grid-auto-flow row
-				grid-template-columns 100px 1fr
-		
-		.Statistics_number
-			margin-bottom 0
+      @media $xs
+        grid-auto-flow row
+        grid-template-columns 100px 1fr
+    
+    .Statistics_number
+      margin-bottom 0
 
-			// @media $xlMinus
-			// 	margin-bottom -4px
-		
-		.Statistics_text
-			font-size 18px
-			line-height 1.11
+      // @media $xlMinus
+      //   margin-bottom -4px
+    
+    .Statistics_text
+      font-size 18px
+      line-height 1.11
 
-			@media $xs
-				margin-top 2px
-				margin-left 16px
-				font-size 24px
-				line-height 1.5
-				letter-spacing 0
+      @media $xs
+        margin-top 2px
+        margin-left 16px
+        font-size 24px
+        line-height 1.5
+        letter-spacing 0
 
-			// @media $xlMinus
-			// 	font-size 13px
+      // @media $xlMinus
+      //   font-size 13px
