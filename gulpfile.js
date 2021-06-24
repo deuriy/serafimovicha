@@ -77,6 +77,7 @@ function templates() {
         "src/templates/**/*.pug",
         "!src/templates/layouts/*.pug",
         "!src/templates/includes/**/*.pug",
+        "!src/templates/blocks/*.pug",
       ])
     )
     .pipe(
