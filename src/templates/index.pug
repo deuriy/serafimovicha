@@ -127,9 +127,9 @@ block content
       .PlanningSolutions_content.Tabs_container
         - for (var i = 0; i < 4; i++)
           if i == 0
-            - var style = 'display: block;'
+            - var style = 'display: block;';
           else
-            - var style = ''
+            - var style = '';
           .Tabs_content(style=style)
             .PlanningSolutionsSlider.Container.Container-planningSolutionsSlider(
               id='PlanningSolutionsSlider' + i
@@ -141,7 +141,9 @@ block content
                       include ./blocks/PlanSolution
                   - }
                 .SwiperPagination.SwiperPagination-darkBlue.PlanningSolutionsSlider_pagination
-            button.CircleBtn.CircleBtn-brown.CircleBtn-next.PlanningSolutionsSlider_circleBtn.hidden-smMinus(type="button")
+            button.CircleBtn.CircleBtn-brown.CircleBtn-next.PlanningSolutionsSlider_circleBtn.hidden-smMinus(
+              type="button"
+            )
     #ApartmentChoosing.ApartmentChoosing
       include ./blocks/LeftSidebar
       .ApartmentChoosing_left
@@ -251,23 +253,25 @@ block content
         .Tabs_container
           - for (var i = 0; i < 2; i++)
             if i == 0
-              - var style = 'display: block;'
+              - var style = 'display: block;';
             else
-              - var style = ''
+              - var style = '';
             .Tabs_content(style=style)
               .GallerySlider(id='GallerySlider' + i)
                 .swiper-container
                   .swiper-wrapper.GallerySlider_wrapper
                     - for(var j = 0; j < 4; j++) {
                       .swiper-slide.GallerySlider_slide.hidden-smMinus
-                        img(src="img/gallery_img.jpg")
+                        img(src="img/gallery_img.jpg", alt="")
                       .swiper-slide.GallerySlider_slide.hidden-mdPlus.hidden-xs
-                        img(src="img/gallery_img_tablet.jpg")
+                        img(src="img/gallery_img_tablet.jpg", alt="")
                       .swiper-slide.GallerySlider_slide.hidden-smPlus
-                        img(src="img/gallery_img_mob.jpg")
+                        img(src="img/gallery_img_mob.jpg", alt="")
                     - }
                   .SwiperPagination.GallerySlider_pagination
-              button.CircleBtn.CircleBtn-brown.CircleBtn-whiteBg.CircleBtn-next.GallerySlider_circleBtn.hidden-smMinus(type="button")
+              button.CircleBtn.CircleBtn-brown.CircleBtn-whiteBg.CircleBtn-next.GallerySlider_circleBtn.hidden-smMinus(
+                type="button"
+              )
     .FormSection
       include ./blocks/LeftSidebar
       .FormSection_left
@@ -283,4 +287,6 @@ block content
       .FormSection_right
         h2.SectionTitle.SectionTitle-white.FormSection_title Перейти к выбору квартиры
         a.CircleBtn.CircleBtn-small.CircleBtn-arrowTop(href="#ApartmentChoosing")
-      a.CircleBtn.CircleBtn-small.CircleBtn-orange.CircleBtn-darkBlueBg.CircleBtn-arrowTop.FormSection_circleBtn.hidden-smMinus(href="#HeroSection")
+      a.CircleBtn.CircleBtn-small.CircleBtn-orange.CircleBtn-darkBlueBg.CircleBtn-arrowTop.FormSection_circleBtn.hidden-smMinus(
+        href="#HeroSection"
+      )
