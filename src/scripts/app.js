@@ -313,3 +313,14 @@ $(".HousePlan_scheme").tooltip({
     return tplNode;
   },
 });
+
+document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
+  "use strict";
+
+  anchor.addEventListener("click", function (event) {
+    event.preventDefault();
+    document.querySelector(this.getAttribute("href")).scrollIntoView({
+      behavior: "smooth",
+    });
+  });
+});
