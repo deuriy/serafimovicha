@@ -80,7 +80,7 @@ document.querySelectorAll(".PlanningSolutionsSlider").forEach(function (item) {
         },
       },
     })
-  );
+    );
 });
 
 const gallerySliders = [];
@@ -112,7 +112,7 @@ document.querySelectorAll(".GallerySlider").forEach(function (item) {
         },
       },
     })
-  );
+    );
 });
 
 document.querySelectorAll(".Tabs_list").forEach(function (tabList) {
@@ -138,7 +138,7 @@ document.querySelectorAll(".Tabs_list").forEach(function (tabList) {
 
       const planningSolutionsSlider = tabsContent[tabIndex].querySelector(
         ".PlanningSolutionsSlider"
-      );
+        );
       if (planningSolutionsSlider) {
         planningSolutionsSliders[tabIndex].update();
       }
@@ -296,20 +296,91 @@ $(".HousePlan_scheme").tooltip({
     const tplNode = estateObjCardTpl.cloneNode(true);
 
     tplNode
-      .querySelector(".RealEstate_title")
-      .insertAdjacentHTML("afterbegin", $el.data("bedrooms"));
+    .querySelector(".RealEstate_title")
+    .insertAdjacentHTML("afterbegin", $el.data("bedrooms"));
 
     tplNode
-      .querySelector(".RealEstate_apartmentNumber")
-      .insertAdjacentHTML("beforeend", $el.data("num"));
+    .querySelector(".RealEstate_apartmentNumber")
+    .insertAdjacentHTML("beforeend", $el.data("num"));
 
     tplNode
-      .querySelector(".RealEstate_characteristicValue-footage")
-      .insertAdjacentHTML("afterbegin", $el.data("footage"));
+    .querySelector(".RealEstate_characteristicValue-footage")
+    .insertAdjacentHTML("afterbegin", $el.data("footage"));
 
     tplNode
-      .querySelector(".RealEstate_characteristicValue-price")
-      .insertAdjacentHTML("afterbegin", $el.data("price").toLocaleString());
+    .querySelector(".RealEstate_characteristicValue-price")
+    .insertAdjacentHTML("afterbegin", $el.data("price").toLocaleString());
     return tplNode;
   },
 });
+
+
+(() => {
+  let coords = {
+    lat: 54.9800409,
+    lng:  82.877835
+  };
+
+  let map = new google.maps.Map(document.getElementById('infrasMap'), {
+    zoom: 16,
+    center: coords,
+    streetViewControl: false,
+    scrollwheel: false,
+  });
+
+  let markers = JSON.parse(document.getElementById('infrasObj').textContent);
+
+  let insertedMarkers = [];
+
+  for (let i = 0; i < markers.length; i++) {
+    let image = {
+      url: markers[i].ico
+    };
+
+    let marker = new google.maps.Marker({
+      position: markers[i].coords,
+      map: map,
+      icon: image,
+      iconsType: markers[i].type,
+    });
+
+    insertedMarkers.push(marker);
+  }
+
+  let mainMarker = new google.maps.Marker({
+    position: coords,
+    map: map,
+    iconsType: "unbeatable",
+  });
+
+  insertedMarkers.push(mainMarker);
+
+  $(".MapIcon").on('click', (event) => {
+    event.preventDefault();
+    let $mapIcon = $(event.currentTarget);
+
+    $mapIcon.toggleClass('MapIcon-active');
+
+    let $mapIcons = $(".MapIcon-active");
+    if (!$mapIcons.length) {
+      for (let i = insertedMarkers.length - 1; i >= 0; i--) {
+        insertedMarkers[i].setVisible(true);
+      }
+    } else {
+      let activeTypes = [];
+      $mapIcons.each((index, el) => {
+        activeTypes.push(parseInt(el.dataset.iconsType));
+      });
+
+      for (let i = insertedMarkers.length - 1; i >= 0; i--) {
+        if(insertedMarkers[i].iconsType === "unbeatable"){
+          continue;
+        }else if (activeTypes.includes(insertedMarkers[i].iconsType) || activeTypes[0] == 0) {
+          insertedMarkers[i].setVisible(true);
+        } else {
+          insertedMarkers[i].setVisible(false);
+        }
+      }
+    }
+  });
+})();

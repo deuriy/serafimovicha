@@ -5,7 +5,7 @@
   &_list
     list-style none
     display grid
-    grid-template-columns repeat(auto-fit, minmax(100px, auto))
+    grid-template-columns repeat(auto-fit, minmax(60px, auto))
     gap 20px 20px
     padding 40px 0 46px 40px
     border-bottom 1px solid $lightGrey
@@ -13,9 +13,13 @@
     @media $xlMinus
       padding 30px
     
+    @media $lgMinus
+      padding-right 20px
+      padding-left 20px
+    
     @media $smMinus
       width 768px
-      padding 34px 25px 25px
+      padding 34px 20px 25px
       grid-template-columns repeat(9, 1fr)
     
     @media $xs

@@ -3,39 +3,14 @@
   // grid-auto-flow column
   grid-template-columns 40px auto
   align-items center
+  border none
+  outline none
+  background transparent
+  cursor pointer
 
   @media $xlMinus
     grid-template-columns 1fr
     justify-items center
-  
-  &_iconWrapper
-    display grid
-    justify-content center
-    align-content center
-    // width 35px
-    // height 35px
-    width 38px
-    height 38px
-    border 2px solid $darkBrown
-    border-radius 2px
-    transform rotate(-45deg)
-    
-    @media $xlMinus
-      width 27px
-      height 27px
-    
-    @media $smMinus
-      width 38px
-      height 38px
-    
-    &-darkBg
-      background-color $darkBrown
-    
-  &_icon
-    transform rotate(45deg)
-    
-    @media $xlMinus
-      width 12px
   
   &_title
     margin-left 14px

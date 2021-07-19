@@ -203,54 +203,45 @@ block content
       include ./blocks/LeftSidebar
       .MapSection_container
         h2.SectionTitle.MapSection_title Инфраструктура
-        .MapSection_map
-          img.MapSection_mapImg(src="/img/map.png", alt="Инфраструктура")
+        .MapSection_map#infrasMap
+          //- img.MapSection_mapImg(src="/img/map.png", alt="Инфраструктура")
         .MapIcons.MapSection_icons
           ul.MapIcons_list
             li.MapIcons_item
-              .MapIcon
-                .MapIcon_iconWrapper
-                  img.MapIcon_icon(src="/img/map_icons/all.svg", alt="Все")
+              button(type="button" data-icons-type="0").MapIcon
+                img.MapIcon_icon(src="/img/map_icons/all.svg", alt="Все")
                 h4.MapIcon_title Все
             li.MapIcons_item
-              .MapIcon
-                .MapIcon_iconWrapper
-                  img.MapIcon_icon(src="/img/map_icons/health.svg", alt="Здоровье")
+              button(type="button" data-icons-type="1").MapIcon
+                img.MapIcon_icon(src="/img/map_icons/health.svg", alt="Здоровье")
                 h4.MapIcon_title Здоровье
             li.MapIcons_item
-              .MapIcon
-                .MapIcon_iconWrapper.MapIcon_iconWrapper-darkBg
-                  img.MapIcon_icon(src="/img/map_icons/education.svg", alt="Образование")
+              button(type="button" data-icons-type="2").MapIcon
+                img.MapIcon_icon(src="/img/map_icons/education.svg", alt="Образование")
                 h4.MapIcon_title Образование
             li.MapIcons_item
-              .MapIcon
-                .MapIcon_iconWrapper.MapIcon_iconWrapper-darkBg
-                  img.MapIcon_icon(src="/img/map_icons/food.svg", alt="Питание")
+              button(type="button" data-icons-type="3").MapIcon
+                img.MapIcon_icon(src="/img/map_icons/food.svg", alt="Питание")
                 h4.MapIcon_title Питание
             li.MapIcons_item
-              .MapIcon
-                .MapIcon_iconWrapper
-                  img.MapIcon_icon(src="/img/map_icons/sport.svg", alt="Спорт")
+              button(type="button" data-icons-type="4").MapIcon
+                img.MapIcon_icon(src="/img/map_icons/sport.svg", alt="Спорт")
                 h4.MapIcon_title Спорт
             li.MapIcons_item
-              .MapIcon
-                .MapIcon_iconWrapper.MapIcon_iconWrapper-darkBg
-                  img.MapIcon_icon(src="/img/map_icons/shop.svg", alt="Магазины")
+              button(type="button" data-icons-type="5").MapIcon
+                img.MapIcon_icon(src="/img/map_icons/shop.svg", alt="Магазины")
                 h4.MapIcon_title Магазины
             li.MapIcons_item
-              .MapIcon
-                .MapIcon_iconWrapper
-                  img.MapIcon_icon(src="/img/map_icons/park.svg", alt="Парки")
+              button(type="button" data-icons-type="6").MapIcon
+                img.MapIcon_icon(src="/img/map_icons/park.svg", alt="Парки")
                 h4.MapIcon_title Парки
             li.MapIcons_item
-              .MapIcon
-                .MapIcon_iconWrapper
-                  img.MapIcon_icon(src="/img/map_icons/water.svg", alt="Водоемы")
+              button(type="button" data-icons-type="7").MapIcon
+                img.MapIcon_icon(src="/img/map_icons/water.svg", alt="Водоемы")
                 h4.MapIcon_title Водоемы
             li.MapIcons_item
-              .MapIcon
-                .MapIcon_iconWrapper.MapIcon_iconWrapper-darkBg
-                  img.MapIcon_icon(src="/img/map_icons/mall.svg", alt="ТЦ")
+              button(type="button" data-icons-type="8").MapIcon
+                img.MapIcon_icon(src="/img/map_icons/mall.svg", alt="ТЦ")
                 h4.MapIcon_title ТЦ
         .MapSection_textAndStatistics
           .MapSection_text
@@ -317,3 +308,63 @@ block content
       a.CircleBtn.CircleBtn-small.CircleBtn-orange.CircleBtn-darkBlueBg.CircleBtn-arrowTop.FormSection_circleBtn.hidden-smMinus(
         href="#HeroSection"
       )
+  script(type="application/json" id="infrasObj").
+    [{
+    "coords": {
+    "lat": 54.9810530, "lng": 82.877835
+    },
+    "type": 1,
+    "ico": "/img/map_icons/health.svg"
+    },
+    {
+    "coords": {
+    "lat": 54.9801530, "lng": 82.879835
+    },
+    "type": 2,
+    "ico": "/img/map_icons/education.svg"
+    },
+    {
+    "coords": {
+    "lat": 54.9811530, "lng": 82.879835
+    },
+    "type": 3,
+    "ico": "/img/map_icons/food.svg"
+    },
+    {
+    "coords": {
+    "lat": 54.9791530, "lng": 82.880835
+    },
+    "type": 4,
+    "ico": "/img/map_icons/sport.svg"
+    },
+    {
+    "coords": {
+    "lat": 54.9779530, "lng": 82.870835
+    },
+    "type": 5,
+    "ico": "/img/map_icons/shop.svg"
+    },
+    {
+    "coords": {
+    "lat": 54.9780530, "lng": 82.875835
+    },
+    "type": 6,
+    "ico": "/img/map_icons/park.svg"
+    },
+    {
+    "coords": {
+    "lat": 54.9790530, "lng": 82.875035
+    },
+    "type": 7,
+    "ico": "/img/map_icons/water.svg"
+    },
+    {
+    "coords": {
+    "lat": 54.9799530, "lng": 82.874035
+    },
+    "type": 8,
+    "ico": "/img/map_icons/mall.svg"
+    }]
+  //- script.
+    //- alert(document.getElementById('infrasObj').textContent);
+  script(src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBW93iAmXx_qNSJ-PYhm8MJTA7XZE953V8")
