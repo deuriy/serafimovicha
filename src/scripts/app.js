@@ -314,8 +314,6 @@ $(".HousePlan_scheme").tooltip({
   },
 });
 
-<<<<<<< HEAD
-
 (() => {
   let coords = {
     lat: 54.9800409,
