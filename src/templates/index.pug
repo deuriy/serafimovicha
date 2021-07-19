@@ -24,14 +24,14 @@ block content
             - }
           .SwiperPagination.HeroSlider_pagination
           button.CircleBtn.CircleBtn-next.HeroSlider_circleBtn.hidden-smMinus(type="button")
-      a.BtnOutline.hidden-smPlus.HeroSection_btn(href="#") Выбрать квартиру
+      a.BtnOutline.hidden-smPlus.HeroSection_btn(href="#ApartmentChoosing") Выбрать квартиру
 
     .ContactsBlock.hidden-smMinus
       .ContactsBlock_left
         a.Phone.ContactsBlock_phone(href="tel:+73833054111") +7 383 305-41-11
         a.OrderCall.ContactsBlock_orderCall(href="#") Заказать звонок
       .ContactsBlock_right
-        a.BtnOutline(href="#") Выбрать квартиру
+        a.BtnOutline(href="#ApartmentChoosing") Выбрать квартиру
     .About
       include ./blocks/LeftSidebar
       .About_container
@@ -51,7 +51,7 @@ block content
               .Statistics_number 2
               .Statistics_text дома
         .CircleImg.About_circleImg
-          img.CircleImg_img(src="/img/about_img.png", alt="О проекте")
+          img.CircleImg_img(src="/img/about_img.webp", alt="О проекте")
     .Location.Frontpage_location
       .Location_container
         .Location_textWrapper
@@ -182,7 +182,7 @@ block content
             include includes/floor_plan_svg
             template#estateObjCardTpl
               .RealEstate
-                h4.RealEstate_title комнатная
+                h4.RealEstate_title  комнатная
                 .RealEstate_textWrapper
                   .RealEstate_apartmentNumber Квартира №
                   ul.RealEstate_characteristics

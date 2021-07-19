@@ -314,6 +314,7 @@ $(".HousePlan_scheme").tooltip({
   },
 });
 
+<<<<<<< HEAD
 
 (() => {
   let coords = {
@@ -384,3 +385,14 @@ $(".HousePlan_scheme").tooltip({
     }
   });
 })();
+
+document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
+  "use strict";
+
+  anchor.addEventListener("click", function (event) {
+    event.preventDefault();
+    document.querySelector(this.getAttribute("href")).scrollIntoView({
+      behavior: "smooth",
+    });
+  });
+});
