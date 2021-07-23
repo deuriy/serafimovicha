@@ -204,45 +204,44 @@ block content
       .MapSection_container
         h2.SectionTitle.MapSection_title Инфраструктура
         .MapSection_map#infrasMap
-          //- img.MapSection_mapImg(src="/img/map.png", alt="Инфраструктура")
         .MapIcons.MapSection_icons
           ul.MapIcons_list
             li.MapIcons_item
-              button(type="button" data-icons-type="0").MapIcon
-                include includes/map_icons/all.svg
-                h4.MapIcon_title Все
+              button(type="button" data-icons-type="0").MapIcon.MapIcon-active
+                include includes/map_icons/all
+                .MapIcon_title Все
             li.MapIcons_item
               button(type="button" data-icons-type="1").MapIcon
-                include includes/map_icons/health.svg
-                h4.MapIcon_title Здоровье
+                include includes/map_icons/health
+                .MapIcon_title Здоровье
             li.MapIcons_item
               button(type="button" data-icons-type="2").MapIcon
-                include includes/map_icons/education.svg
-                h4.MapIcon_title Образование
+                include includes/map_icons/education
+                .MapIcon_title Образование
             li.MapIcons_item
               button(type="button" data-icons-type="3").MapIcon
-                include includes/map_icons/food.svg
-                h4.MapIcon_title Питание
+                include includes/map_icons/food
+                .MapIcon_title Питание
             li.MapIcons_item
               button(type="button" data-icons-type="4").MapIcon
-                include includes/map_icons/sport.svg
-                h4.MapIcon_title Спорт
+                include includes/map_icons/sport
+                .MapIcon_title Спорт
             li.MapIcons_item
               button(type="button" data-icons-type="5").MapIcon
-                include includes/map_icons/shop.svg
-                h4.MapIcon_title Магазины
+                include includes/map_icons/shop
+                .MapIcon_title Магазины
             li.MapIcons_item
               button(type="button" data-icons-type="6").MapIcon
-                include includes/map_icons/park.svg
-                h4.MapIcon_title Парки
+                include includes/map_icons/park
+                .MapIcon_title Парки
             li.MapIcons_item
               button(type="button" data-icons-type="7").MapIcon
-                include includes/map_icons/water.svg
-                h4.MapIcon_title Водоемы
+                include includes/map_icons/water
+                .MapIcon_title Водоемы
             li.MapIcons_item
               button(type="button" data-icons-type="8").MapIcon
-                include includes/map_icons/mall.svg
-                h4.MapIcon_title ТЦ
+                include includes/map_icons/mall
+                .MapIcon_title ТЦ
         .MapSection_textAndStatistics
           .MapSection_text
             p Два дома расположены на улице Серафимовича, #[br.hidden-smMinus]в 500 метрах от станции метро «Площадь Маркса». #[br.hidden-smMinus]В районе хорошо развита социальная и транспортная инфраструктура, район прекрасно подходит для комфортной жизни.
@@ -365,6 +364,4 @@ block content
     "type": 8,
     "ico": "/img/map_icons/mall.svg"
     }]
-  //- script.
-    //- alert(document.getElementById('infrasObj').textContent);
   script(src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBW93iAmXx_qNSJ-PYhm8MJTA7XZE953V8")

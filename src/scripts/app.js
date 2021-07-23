@@ -346,9 +346,14 @@ $(".HousePlan_scheme").tooltip({
     insertedMarkers.push(marker);
   }
 
+  var mainPin = {
+    url: "/img/map_icons/bld_marker.png",
+  };
+
   let mainMarker = new google.maps.Marker({
     position: coords,
     map: map,
+    icon: mainPin,
     iconsType: "unbeatable",
   });
 
@@ -358,7 +363,15 @@ $(".HousePlan_scheme").tooltip({
     event.preventDefault();
     let $mapIcon = $(event.currentTarget);
 
-    $mapIcon.toggleClass('MapIcon-active');
+    let $activeMapIcon = $('.MapIcon-active');
+
+    if (!$activeMapIcon.length || ($activeMapIcon[0] !== undefined && $activeMapIcon[0] != event.currentTarget)) {
+      $($activeMapIcon[0]).removeClass('MapIcon-active');
+      $($activeMapIcon[0]).find('.MapSvgIco').removeClass('MapSvgIco-active');
+    }
+
+    $mapIcon.addClass('MapIcon-active');
+    $mapIcon.find('.MapSvgIco').addClass('MapSvgIco-active');
 
     let $mapIcons = $(".MapIcon-active");
     if (!$mapIcons.length) {
