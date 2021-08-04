@@ -91,6 +91,10 @@ block content
                   h3.Advantage_title Малое количество #[br]квартир
                   .Advantage_text
                     p Квартал на «Серафимовича» — это невысокие, полностью кирпичные дома, 9 этажей, в комплексе спроектирован подземный теплый паркинг. Комплекс будет состоять из 2-х домов (195 квартир)
+          .AdvantagesSlider_controls.hidden-smPlus
+            button.SwiperBtn.SwiperBtn-prev(type="button")
+            .SwiperPagination.AdvantagesSlider_pagination
+            button.SwiperBtn.SwiperBtn-next(type="button")
       .Advantages_container.hidden-xs
         .Advantage.Advantage-modernArchitecture.Advantages_item
           .Advantage_imgWrapper
@@ -285,7 +289,9 @@ block content
                       .swiper-slide.GallerySlider_slide.hidden-smPlus
                         img(src="img/gallery_img_mob.jpg", alt="")
                     - }
+                  button.SwiperBtn.SwiperBtn-prev(type="button").GallerySlider_prevBtn.hidden-smPlus
                   .SwiperPagination.GallerySlider_pagination
+                  button.SwiperBtn.SwiperBtn-next(type="button").GallerySlider_nextBtn.hidden-smPlus
               button.CircleBtn.CircleBtn-brown.CircleBtn-whiteBg.CircleBtn-next.GallerySlider_circleBtn.hidden-smMinus(
                 type="button"
               )

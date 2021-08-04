@@ -38,7 +38,8 @@ new Swiper(".AdvantagesSlider .swiper-container", {
   },
 
   navigation: {
-    nextEl: ".AdvantagesSlider .CircleBtn-next",
+    nextEl: ".AdvantagesSlider .SwiperBtn-next",
+    prevEl: ".AdvantagesSlider .SwiperBtn-prev"
   },
 });
 
@@ -103,10 +104,17 @@ document.querySelectorAll(".GallerySlider").forEach(function (item) {
       },
 
       navigation: {
-        nextEl: `#${item.id} + .GallerySlider_circleBtn`,
+        nextEl: `#${item.id} .SwiperBtn-next`,
+        prevEl: `#${item.id} .SwiperBtn-prev`,
       },
 
       breakpoints: {
+        321: {
+          navigation: {
+            nextEl: `#${item.id} + .GallerySlider_circleBtn`,
+          }
+        },
+
         1920: {
           spaceBetween: 96,
         },

@@ -1,0 +1,25 @@
+.SwiperBtn
+	width 32px
+	height 32px
+	border-radius 50%
+	border 1px solid $white
+	outline none
+	background-color transparent
+	background-repeat no-repeat
+	background-position center center
+	@extend .transition
+	
+	&:hover
+		border-color $darkBlue
+	
+	&-prev
+		background-image url("data:image/svg+xml,%3Csvg width='7' height='12' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M1.618 6L7 .78 6.191 0 0 6l6.191 6L7 11.22 1.618 6z' fill='%23fff'/%3E%3C/svg%3E")
+		
+		&:hover
+			background-image url("data:image/svg+xml,%3Csvg width='7' height='12' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M1.618 6L7 .78 6.191 0 0 6l6.191 6L7 11.22 1.618 6z' fill='%23292B32'/%3E%3C/svg%3E")
+	
+	&-next
+		background-image url("data:image/svg+xml,%3Csvg width='7' height='12' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M5.382 6L0 .78.809 0 7 6 .809 12 0 11.22 5.382 6z' fill='%23fff'/%3E%3C/svg%3E")
+		
+		&:hover
+			background-image url("data:image/svg+xml,%3Csvg width='7' height='12' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M5.382 6L0 .78.809 0 7 6 .809 12 0 11.22 5.382 6z' fill='%23292B32'/%3E%3C/svg%3E")

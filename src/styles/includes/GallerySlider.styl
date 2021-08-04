@@ -6,7 +6,8 @@
       margin-bottom 33px
     
     @media $xs
-      margin-bottom 14px
+      // margin-bottom 14px
+      margin-bottom 19px
     
   &_slide
     width auto
@@ -19,12 +20,26 @@
       @media $smMinus
         max-height none
   
+  &_prevBtn,
+  &_nextBtn
+    position absolute
+    bottom 0
+  
+  &_prevBtn
+    left 17px
+  
+  &_nextBtn
+    right 15px
+  
   .GallerySlider_pagination
     width 1216px
     max-width 100%
 
     @media $xlMinus
       width 865px
+    
+    @media $xs
+      margin-bottom 5px
   
   & + .GallerySlider_circleBtn
     position absolute
